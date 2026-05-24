@@ -29,6 +29,7 @@ nav {
     font-weight: bold;
     font-size: 1.2rem;
     color: #4c0519; /* Rose-950 */
+    text-decoration: none;
 }
 
 .nav-links a {
