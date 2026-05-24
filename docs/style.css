@@ -163,3 +163,19 @@ h2 {
 .contact-links a:hover {
     text-decoration: underline;
 }
+
+/* ==========================================================================
+   網頁頁尾 (Footer) 樣式
+   ========================================================================== */
+footer {
+    text-align: center;
+    margin-top: 80px;      /* 讓它跟上面的聯絡區塊保持一大段優雅的距離 */
+    padding-top: 20px;
+    border-top: 1px solid #ffe4e6; /* 一條淡淡的玫瑰色分界線 */
+}
+
+footer p {
+    color: #64748b;        /* Slate-500 淡淡的灰色，低調且高級 */
+    font-size: 0.85rem;    /* 字體縮小一點 */
+    margin: 0;
+}
