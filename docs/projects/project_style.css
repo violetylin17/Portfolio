@@ -1,0 +1,230 @@
+/* ==========================================================================
+   頂部 Featured Project 導覽標籤動效
+   ========================================================================== */
+.article-category-link {
+    display: inline-block;     /* 🟢 必加：這樣微調放大動效時才不會卡住 */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #9f1239;            /* 原本漂亮的玫瑰暗色 */
+    font-weight: 600;
+    text-decoration: none;     /* 🟢 拿掉超連結預設的下底線 */
+    
+    /* ✨ 平滑過渡動效：當滑鼠移入移出時，會花 0.2 秒柔和轉變，不生硬 */
+    transition: transform 0.2s ease, color 0.2s ease; 
+}
+
+/* 🪄 滑鼠懸浮（Hover Over）時的放大與顏色加深魔法 */
+.article-category-link:hover {
+    color: #4c0519;            /* 🟢 懸浮時顏色變得更深、更有權威感 */
+    transform: scale(1.05);    /* 🟢 關鍵動作：整行字體優雅地放大 1.05 倍 */
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Project Article Space (Medium Style Layout)
+   ========================================================================== */
+
+/* 1. 文章頂部大標題排版 */
+.article-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 60px auto 30px auto; /* 🟢 微調上下間距，讓它跟下方的白底卡片完美接軌 */
+    padding: 0 20px;
+}
+
+.article-category {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #9f1239; /* 你的玫瑰暗色調 */
+    font-weight: 600;
+}
+
+.article-header h1 {
+    font-size: 2.8rem;
+    color: #4c0519;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+
+.article-subtitle {
+    font-size: 1.4rem;
+    color: #4b5563; /* 質感灰 */
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* 文章作者/時間小資訊 */
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-top: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+    padding: 15px 0;
+    font-size: 0.95rem;
+}
+
+.meta-label {
+    color: #9ca3af;
+    margin-right: 8px;
+}
+
+.meta-value {
+    color: #374151;
+    font-weight: 500;
+}
+
+/* 2. 文章主體：黃金閱讀寬度 680px */
+.project-article {
+    max-width: 800px;
+    margin: 0 auto 50px auto; /* 🟢 讓底部維持與頁尾的舒適距離 */
+    
+    /* 🎨 這裡就是你要的純白底色包裝 
+    background-color: #ffffff; 
+    border-radius: 5px;       /* 🟢 讓白底邊角變得圓潤、有現代感 */
+     /*padding: 20px 80px 50px 80px;        🟢現在把頂部內距從 50px 直接砍到只剩 20px！左右依然維持 60px 舒適寬度 */
+    
+    /* ✨ 加上一層非常隱形、淡淡的玫瑰暗色系高級陰影，讓白底紙張「浮」起來 
+    box-shadow: 0 10px 30px rgba(159, 18, 57, 0.04), 
+                0 1px 3px rgba(0, 0, 0, 0.02); */
+}
+
+.article-section {
+    margin-bottom: 50px;
+}
+
+/* Medium 文章核心：大且舒適的內文字體與行距 */
+.project-article p {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #292929; /* 軟黑色，看久眼睛不酸 */
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.project-article h2 {
+    font-size: 1.5rem;
+    color: #4c0519;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.project-article ul, .project-article ol {
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.project-article li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #292929;
+    margin-bottom: 10px;
+}
+
+/* 3. 精緻大圖與圖說（Figure） */
+.article-figure {
+    /* 🟢 因為外層加了白底和 padding，我們把之前的負 margin 拿掉，
+       讓圖片乖乖與文字對齊，在白紙內部呈現最乾淨的 Medium 觀感 */
+    margin: 35px 0; 
+    text-align: center;
+}
+
+.image-box {
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+/* 4. 質感數據表格 */
+.table-container {
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.results-table th, .results-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.results-table th {
+    background-color: #f9fafb;
+    color: #4c0519;
+    font-weight: 600;
+}
+
+/* 強調亮點數據行 */
+.highlight-row {
+    background-color: rgba(244, 63, 94, 0.05); /* 微弱的玫瑰紅底色 */
+}
+
+/* 5. 文章底部標籤（Project Tags） */
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.ptag {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* 6. 文章底部返回超連結 */
+.article-nav {
+    text-align: center;
+}
+
+.back-home-link {
+    display: inline-block;
+    color: #9f1239;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-home-link:hover {
+    color: #4c0519;
+    transform: translateX(-4px); /* 往左微微滑動，很有動態感 */
+}
+
+/* 響應式微調：螢幕小時圖片寬度縮回 */
+/* 響應式微調：確保手機版閱讀體驗依然無懈可擊 */
+@media (max-width: 768px) {
+    .project-article {
+        padding: 30px 20px; /* 📱 手機版自動縮小內距，留給文字更多空間 */
+        margin: 0 15px 60px 15px; /* 📱 左右留一點點邊，讓卡片感在手機上依然清晰 */
+    }
+    .article-header h1 {
+        font-size: 2.2rem;
+    }
+    .article-meta {
+        gap: 20px;
+        font-size: 0.85rem;
+    }
+}

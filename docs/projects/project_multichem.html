@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Multi-Modal Molecular Prediction</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="project_style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+       <nav>
+            <a href="../index.html" class="nav-logo">Violet✨</a>
+            <div class="nav-links">
+                <a href="../pages/about_me.html">About Me</a>  
+                <a href="../pages/project.html">Projects</a> 
+                <a href="../pages/contact.html">Contact</a>  
+            </div>
+        </nav>
+
+        <header class="article-header">
+            <a href="../pages/project.html" class="article-category-link">Featured Project</a>
+            <h1>Fusing Language and Chemistry</h1>
+            <p class="article-subtitle">Multimodal Embeddings for Molecular Property Prediction</p>
+            
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Date</span>
+                    <span class="meta-value">Jan 2026 - May 2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Data Science Researcher</span>
+                </div>
+            </div>
+        </header>
+
+        
+
+        <main class="project-article">
+            
+            <section class="article-section">
+                <h2>1. Introduction & The Challenge</h2>
+                <p>In computational chemistry, predicting molecular properties accurately is crucial for drug discovery. Traditional models often rely solely on structural graph inputs, which misses out on the vast context available in scientific literature. This project addresses the gap by asking: <em>Can we fuse textual knowledge with chemical structures to predict molecular properties more accurately?</em></p>
+            </section>
+
+            <section class="article-section">
+                <h2>2. System Architecture</h2>
+                <p>The core concept is a multi-modal fusion layer that integrates structural molecular data with natural language representations. We proposed a pipeline that extracts features from two state-of-the-art models:</p>
+                
+                <figure class="article-figure">
+                    <div class="image-box">
+                        <p>📊 [ Diagram: ChemBERTa + BGE-M3 Multimodal Fusion Pipeline ]</p>
+                    </div>
+                    <figcaption>Figure 1: Overall workflow of the dual-embedding fusion framework.</figcaption>
+                </figure>
+
+                <ul>
+                    <li><strong>ChemBERTa:</strong> Captures SMILES string geometries and molecular properties.</li>
+                    <li><strong>BGE-M3:</strong> Generates dense multi-lingual textual embeddings from abstract documentation.</li>
+                </ul>
+            </section>
+
+            <section class="article-section">
+                <h2>3. Key Results & Impact</h2>
+                <p>By implementing a 5-fold cross-validation regression framework, the fused multi-modal embeddings outperformed structure-only baselines, reducing prediction error by a significant margin.</p>
+                
+                <div class="table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Model Configuration</th>
+                                <th>RMSE (Lower is better)</th>
+                                <th>R² Score (Higher is better)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Structure Embeddings Only (ChemBERTa)</td>
+                                <td>0.425</td>
+                                <td>0.74</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td><strong>Multimodal Fusion (ChemBERTa + BGE-M3)</strong></td>
+                                <td><strong>0.312</strong></td>
+                                <td><strong>0.86</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2>4. Conclusion & Key Takeaways</h2>
+                <p>This approach demonstrates the power of utilizing large-scale language embeddings to assist in rigid scientific domain problems. Future work involves scaling the pipeline to Apache Spark clusters for larger datasets.</p>
+                
+                <div class="article-tags">
+                    <span class="ptag">Python</span>
+                    <span class="ptag">ChemBERTa</span>
+                    <span class="ptag">BGE-M3</span>
+                    <span class="ptag">NLP</span>
+                    <span class="ptag">PyTorch</span>
+                </div>
+            </section>     
+              
+        </main>
+
+
+        <footer>
+            <p>&copy; 2026 Yu-Chien Lin. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
