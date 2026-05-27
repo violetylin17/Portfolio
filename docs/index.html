@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Violet Lin | Portfolio</title>
-    <!-- 📌 連結到同一個資料夾底下的 style.css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         
-        <!-- 導覽列 -->
         <nav>
-            <a href="index.html" class="nav-logo">Violet✨</a>   <!-- div class="nav-logo">Violet.✨</div> -->
+            <a href="index.html" class="nav-logo">Violet✨</a>
             <div class="nav-links">
                 <a href="pages/about_me.html">About Me</a>
-                <a href="pages/project.html">Projects</a> <!-- #projects 超連結到下面 -->
+                <a href="pages/project.html">Projects</a>
                 <a href="pages/contact.html">Contact</a>
             </div>
         </nav>
 
-        <!-- 關於我 / 頁首區塊 -->
         <header>
             <h1>YuChien(Violet) Lin</h1>
             <p>Data Scientist & Data Engineer</p>
@@ -30,25 +27,38 @@
             </p>
         </header>
 
- 
-        <!-- 大專案展示區塊 -->
         <section id="projects">
-            <h2>Featured Projects</h2>
+            <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:25px;">
+                <h2 style="margin:0;">Featured Projects</h2>
+                <a href="pages/project.html" class="section-view-all">View all →</a>
+            </div>
             <div class="project-grid">
                 
-                <!-- Project 1 Youtube -->
-                <a href="#project-youtube" class="project-card">
-                    <div class="project-title">📊 Scalable Distributed NLP Pipeline</div>
-                    <p class="project-desc">Architected a robust PySpark distributed processing pipeline on AWS EC2 clusters to ingest and optimize over 500 million social media comments, significantly reducing data shuffling latency.</p>
+                <a href="#modal-youtube" class="project-card">
+                    <div class="project-title">💬 YouTube Comment Sentiment Analysis</div>
+                    <p class="project-desc">Analyzed viewer comments across English-learning YouTube channels (305+ videos) using bigram extraction, learning-dimension scoring, and OpenAI-assisted multi-label classification to uncover what draws ESL audiences.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">PySpark</span>
-                        <span class="tag">AWS EC2</span>
+                        <span class="tag">NLTK</span>
+                        <span class="tag">OpenAI Batch API</span>
                     </div>
                 </a>
 
-                <!-- Project 2 Multi-Chem -->
-                 <a href="#modal-multichem" class="project-card">
+                <a href="#reddit-data" class="project-card">
+                    <div class="project-title">📊 Reddit AI Trend Analysis</div>
+                    <p class="project-desc">
+                        Built a scalable NLP pipeline to clean, structure, and analyze large volumes of Reddit comments, uncovering sentiment shifts and emerging discussion patterns around artificial intelligence.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Regex</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                </a>
+
+
+                <a href="#modal-multichem" class="project-card">
                     <div class="project-title">🧪 Multi-Modal Molecular Property Prediction</div>
                     <p class="project-desc">Developed a multi-modal fusion framework for computational chemistry by integrating structural embeddings from ChemBERTa and text representations from BGE-M3 to enhance regression accuracy.</p>
                     <div class="tags">
@@ -57,155 +67,131 @@
                         <span class="tag">NLP</span>
                     </div>
                 </a> 
-
-                
-                <!-- Project 3 Reddit -->
-                <a href="#project-reddit" class="project-card">
-                    <div class="project-title">🎮 Pokémon Computer Vision AI Agent</div>
-                    <p class="project-desc">Engineered a real-time computer vision agent using OpenCV for real-time tile recognition and map classification, integrating an automated decision-making script for autonomous gameplay.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">Computer Vision</span>
-                    </div>
-                </a>
-
-
             </div>
         </section>
 
-        <!-- 聯絡方式 -->
         <section id="contact" class="contact-section">
             <h2>👋 Let's Connect</h2>
             <p>I am always open to discussing new research collaborations, data science opportunities, or technical challenges.</p>
             <div class="contact-links">
-                <a href="https://github.com/" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-                <a href="mailto:your-email@example.com">Email Me</a>
+                <a href="https://github.com/violetylin17" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/yuchien170/" target="_blank">LinkedIn</a>
+                <a href="mailto:violet17lin@gmail.com">Email Me</a>
             </div>
         </section>
-
-        <!-- Project 1 Youtube 燈箱 -->
-        <div id="project-youtube" class="project-modal-overlay" onclick="window.location.hash = '#';">
-    
-            <div class="project-modal-window" onclick="event.stopPropagation();">
-                
-                <a href="#" class="modal-close-btn">&times;</a>
-                
-                <div class="modal-detail-content">
-                    <h2>🧪 Youtube Comment Sentiment Analysis</h2>
-                    <p class="modal-subtitle"> Research Project | Python & Machine Learning</p>
-                    <hr>
-                    
-                    <h3>Project Overview</h3>
-                    <p>This research developed a distributed, large-scale multi-modal fusion framework for computational chemistry...</p>
-                    
-                    <div class="modal-image-placeholder">
-                        <p>[ 可以在此放入你的 Youtube Analysis Pipeline ]</p>
-                    </div>
-
-                    <h3>Technical Highlights</h3>
-                    <ul>
-                        <li>Integrated structural embeddings from <strong>ChemBERTa</strong> with text representations from <strong>BGE-M3</strong>.</li>
-                        <li>Implemented a multi-modal fusion layer that significantly enhanced property regression accuracy.</li>
-                        <li>Optimized memory usage for processing large-scale chemical datasets.</li>
-                    </ul>
-
-                    <h3>Tags & Technologies</h3>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ChemBERTa</span>
-                        <span class="tag">BGE-M3</span>
-                        <span class="tag">NLP</span>
-                        <span class="tag">PyTorch</span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Project 2 multichem 燈箱 -->
-        <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
-    
-            <div class="project-modal-window" onclick="event.stopPropagation();">
-                
-                <a href="#" class="modal-close-btn">&times;</a>
-                
-                <div class="modal-detail-content">
-                    <h2>🧪 Multi-Modal Molecular Property Prediction</h2>
-                    <p class="modal-subtitle">Graduate Research Project | Python & Machine Learning</p>
-                    <hr>
-                    
-                    <h3>Project Overview</h3>
-                    <p>This research developed a distributed, large-scale multi-modal fusion framework for computational chemistry...</p>
-                    
-                    <div class="modal-image-placeholder">
-                        <p>[ 可以在此放入你的 ChemBERTa 模型架構圖 ]</p>
-                    </div>
-
-                    <h3>Technical Highlights</h3>
-                    <ul>
-                        <li>Integrated structural embeddings from <strong>ChemBERTa</strong> with text representations from <strong>BGE-M3</strong>.</li>
-                        <li>Implemented a multi-modal fusion layer that significantly enhanced property regression accuracy.</li>
-                        <li>Optimized memory usage for processing large-scale chemical datasets.</li>
-                    </ul>
-
-                    <h3>Tags & Technologies</h3>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ChemBERTa</span>
-                        <span class="tag">BGE-M3</span>
-                        <span class="tag">NLP</span>
-                        <span class="tag">PyTorch</span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <!-- Project 3 Reddit 燈箱 -->
-        <div id="project-reddit" class="project-modal-overlay" onclick="window.location.hash = '#';">
-    
-            <div class="project-modal-window" onclick="event.stopPropagation();">
-                
-                <a href="#" class="modal-close-btn">&times;</a>
-                
-                <div class="modal-detail-content">
-                    <h2>🧪 Multi-Modal Molecular Property Prediction</h2>
-                    <p class="modal-subtitle">Graduate Research Project | Python & Machine Learning</p>
-                    <hr>
-                    
-                    <h3>Project Overview</h3>
-                    <p>This research developed a distributed, large-scale multi-modal fusion framework for computational chemistry...</p>
-                    
-                    <div class="modal-image-placeholder">
-                        <p>[ 可以在此放入你的 ChemBERTa 模型架構圖 ]</p>
-                    </div>
-
-                    <h3>Technical Highlights</h3>
-                    <ul>
-                        <li>Integrated structural embeddings from <strong>ChemBERTa</strong> with text representations from <strong>BGE-M3</strong>.</li>
-                        <li>Implemented a multi-modal fusion layer that significantly enhanced property regression accuracy.</li>
-                        <li>Optimized memory usage for processing large-scale chemical datasets.</li>
-                    </ul>
-
-                    <h3>Tags & Technologies</h3>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ChemBERTa</span>
-                        <span class="tag">BGE-M3</span>
-                        <span class="tag">NLP</span>
-                        <span class="tag">PyTorch</span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
 
         <footer>
             <p>&copy; 2026 Yu-Chien Lin. All rights reserved.</p>
         </footer>
+        
     </div>
+
+    <div id="modal-youtube" class="project-modal-overlay" onclick="window.location.hash = '#';">
+        <div class="project-modal-window" onclick="event.stopPropagation();">
+            <a href="#" class="modal-close-btn">&times;</a>
+            <div class="modal-detail-content">
+                <h2>💬 YouTube Comment Sentiment Analysis</h2>
+                <p class="modal-subtitle">Research Project · NLP | 2025</p>
+                <hr>
+                <h3>Project Overview</h3>
+                <p>Analyzed viewer comment data across English-learning YouTube channels to understand what draws ESL audiences and whether the content supports language acquisition. </p>
+                <img src="figures/youtube_workflow.png" alt="YouTube Comment Analysis Pipeline" style="width:100%; border-radius:8px; margin:20px 0;">
+                <h3>Technical Highlights</h3>
+                <ul>
+                    <li>Collected and processed comments from <strong>305+ videos</strong> via the YouTube Data API, extracting structured fields into a per-channel dataframe.</li>
+                    <li>Built an <strong>automated batch submission pipeline</strong> using the OpenAI Batch API — chunked comments into 400-comment batches, controlled concurrency with <code>MAX_CONCURRENT = 1</code> to stay within token limits, and tracked job status via a <code>tracking_log.csv</code>.</li>
+                    <li>Implemented <strong>failure recovery</strong>: failed jobs can be re-queued by flipping their log status from <code>fail</code> → <code>pending</code> and re-running the script, with no manual re-work required.</li>
+                    <li>Applied <strong>bigram frequency analysis</strong> after stop-word removal to surface recurring viewer themes per channel.</li>
+                    <li>Used <strong>multi-label classification</strong> (OpenAI API, ~20 label categories) to categorize comments into thematic clusters; aggregated results using like-weighting (log transform) and normalization.</li>
+                    <li>Scored comments along 4 learning dimensions using keyword stem matching: Listening, Speaking/Pronunciation, Vocabulary/Grammar, and Confidence/Motivation.</li>
+                </ul>
+                <h3>Tags & Technologies</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">NLTK</span>
+                    <span class="tag">OpenAI Batch API</span>
+                    <span class="tag">Job Queue & Retry</span>
+                    <span class="tag">Sentiment Analysis</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">Seaborn</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reddit-data" class="project-modal-overlay" onclick="window.location.hash = '#';">
+        <div class="project-modal-window" onclick="event.stopPropagation();">
+            <a href="#" class="modal-close-btn">&times;</a>
+            <div class="modal-detail-content">
+                <h2>📊 Reddit AI Trend Analysis</h2>
+                <p class="modal-subtitle">Independent Data Pipeline Project | Python & NLP</p>
+                <hr>
+
+                <h3>Project Overview</h3>
+                <p>
+                    This project built a scalable text‑processing pipeline to analyze public sentiment and discussion trends 
+                    around artificial intelligence across Reddit. Using regex‑based cleaning, NLP preprocessing, and 
+                    topic‑frequency modeling, the system transformed millions of unstructured comments into structured 
+                    insights about how AI adoption and perception evolve over time.
+                </p>
+
+                <div class="modal-image-placeholder">
+                    <p>[ Reddit Comment Processing Flow Diagram ]</p>
+                </div>
+
+                <h3>Technical Highlights</h3>
+                <ul>
+                    <li>Designed a high‑throughput pipeline for cleaning and normalizing large Reddit comment datasets.</li>
+                    <li>Applied NLP techniques to extract sentiment, keyword frequencies, and emerging AI‑related topics.</li>
+                    <li>Built trend‑tracking visualizations to reveal shifts in public perception of AI technologies.</li>
+                    <li>Implemented regex‑based text normalization to handle noisy, informal, and multilingual content.</li>
+                </ul>
+
+                <h3>Tags & Technologies</h3>
+                <div class="tags">
+                    <span class="tag">AWS</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">Regex</span>
+                    <span class="tag">Data Visualization</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
+        <div class="project-modal-window" onclick="event.stopPropagation();">
+            <a href="#" class="modal-close-btn">&times;</a>
+            <div class="modal-detail-content">
+                <h2>🧪 Multi-Modal Molecular Property Prediction</h2>
+                <p class="modal-subtitle">Graduate Research Project | Python & Machine Learning</p>
+                <hr>
+                <h3>Project Overview</h3>
+                <p>This research developed a distributed, large-scale multi-modal fusion framework for computational chemistry by integrating structural embeddings from ChemBERTa and text representations from BGE-M3 to enhance regression accuracy.</p>
+                <div class="modal-image-placeholder">
+                    <p>[ ChemBERTa 模型架構圖 ]</p>
+                </div>
+                <h3>Technical Highlights</h3>
+                <ul>
+                    <li>Integrated structural embeddings from <strong>ChemBERTa</strong> with text representations from <strong>BGE-M3</strong>.</li>
+                    <li>Implemented a multi-modal fusion layer that significantly enhanced property regression accuracy.</li>
+                    <li>Optimized memory usage for processing large-scale chemical datasets.</li>
+                </ul>
+                <h3>Tags & Technologies</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">ChemBERTa</span>
+                    <span class="tag">BGE-M3</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">PyTorch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
 
 </body>
 </html>

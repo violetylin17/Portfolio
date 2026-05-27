@@ -155,24 +155,37 @@ figcaption {
 .results-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1rem;
-}
-
-.results-table th, .results-table td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+    margin-top: 1.6rem;
+    font-size: 0.92rem;
 }
 
 .results-table th {
-    background-color: #f9fafb;
-    color: #4c0519;
-    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.6rem 1rem;
+    border-bottom: 2px solid var(--ink);
+    color: var(--mid);
 }
 
-/* 強調亮點數據行 */
-.highlight-row {
-    background-color: rgba(244, 63, 94, 0.05); /* 微弱的玫瑰紅底色 */
+.results-table td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+}
+
+.results-table tr:hover td {
+    background: var(--paper-dark);
+}
+
+/* .highlight-row td {
+    background: rgba(92, 64, 51, 0.05);
+} */
+
+.results-table tr.highlight-row:hover td {
+    background: rgba(92, 64, 51, 0.1);
 }
 
 /* 5. 文章底部標籤（Project Tags） */
@@ -192,6 +205,11 @@ figcaption {
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 500;
+}
+
+.ptag-row {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 /* 6. 文章底部返回超連結 */
@@ -228,3 +246,397 @@ figcaption {
         font-size: 0.85rem;
     }
 }
+
+/* ==========================================================================
+   YouTube Sentiment Analysis — Newspaper Layout
+   ========================================================================== */
+
+:root {
+  --ink: #1a1a18;
+  --paper: #f5f0e8;
+  --paper-dark: #ede7d5;
+  --accent: #5c4033;
+  --accent-soft: #e8c5c0;
+  --mid: #6b6355;
+  --rule: #c8bfac;
+}
+
+/* ── PROJECT MASTHEAD ── */
+.project-header {
+  border-bottom: 2px solid var(--ink);
+  padding: 3rem 2rem 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.project-header h1 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 780px;
+}
+
+.project-header h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.byline {
+  margin-top: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--mid);
+  flex-wrap: wrap;
+}
+
+.byline span + span::before {
+  content: "·";
+  margin-right: 1.5rem;
+}
+
+/* ── LAYOUT ── */
+.project-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* ── ABSTRACT ── */
+.abstract {
+  margin: 3rem 0;
+  padding: 2rem 2.4rem;
+  border-left: 3px solid var(--accent);
+  background: #faf8f4;
+}
+
+.abstract-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.abstract p {
+  font-size: 1.05rem;
+  color: #2e2a22;
+}
+
+/* ── SECTION ── */
+.project-main section {
+  margin-top: 4rem;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.project-main h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.project-main p + p { margin-top: 1em; }
+
+/* ── RESEARCH QUESTIONS ── */
+.rq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.6rem;
+}
+
+@media (max-width: 620px) {
+  .rq-grid { grid-template-columns: 1fr; }
+}
+
+.rq-card {
+  padding: 1.6rem;
+  background: #faf8f4;
+  border: 1px solid var(--rule);
+  position: relative;
+}
+
+.rq-card p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ── METHOD PILLS ── */
+.method-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--ink);
+  background: transparent;
+}
+
+/* ── CHANNELS TABLE ── */
+.channels-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.6rem;
+  font-size: 0.92rem;
+}
+
+.channels-table th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid var(--ink);
+  color: var(--mid);
+}
+
+.channels-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.channels-table tr:hover td {
+  background: var(--paper-dark);
+}
+
+/* ── FINDINGS ── */
+.finding-block {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.finding-block:last-child { border-bottom: none; }
+
+.finding-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+
+.finding-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ── STAT ROW ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 1.6rem;
+}
+
+@media (max-width: 580px) {
+  .stat-row { grid-template-columns: 1fr 1fr; }
+}
+
+.stat-cell {
+  background: var(--paper);
+  padding: 1.2rem 1.4rem;
+  text-align: center;
+}
+
+.stat-cell .num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+
+.stat-cell .label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: block;
+  margin-top: 0.4rem;
+}
+
+/* ── DIMENSION BAR ── */
+.dim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.8rem;
+}
+
+@media (max-width: 580px) {
+  .dim-grid { grid-template-columns: 1fr; }
+}
+
+.dim-channel {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 0.8rem;
+}
+
+.dim-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.dim-bar-label {
+  width: 120px;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--mid);
+}
+
+.dim-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--paper-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.dim-bar-fill {
+  height: 100%;
+  background: var(--ink);
+  transform-origin: left;
+  animation: growBar 0.8s ease forwards;
+  transform: scaleX(0);
+}
+
+@keyframes growBar {
+  to { transform: scaleX(1); }
+}
+
+.dim-bar-pct {
+  width: 36px;
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--mid);
+}
+
+/* ── TAKEAWAYS ── */
+.takeaway-list {
+  list-style: none;
+  margin-top: 1.4rem;
+}
+
+.takeaway-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 0.97rem;
+}
+
+.takeaway-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* ── PROJECT FOOTER ── */
+.project-footer {
+  border-top: 2px solid var(--ink);
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--mid);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ── MISC LAYOUT HELPERS ── */
+.sub-section-title   { margin-top: 2.5rem; }
+.findings-conclusion { margin-top: 2rem; }
+
+html { scroll-behavior: smooth; }
+
+/* ── DIMENSION BAR DATA WIDTHS ── */
+.anna-listening   { width: 35%; animation-delay: 0.1s; }
+.anna-speaking    { width: 42%; animation-delay: 0.2s; }
+.anna-vocab       { width: 20%; animation-delay: 0.3s; }
+.anna-confidence  { width:  3%; animation-delay: 0.4s; }
+
+.bob-listening    { width: 27%; animation-delay: 0.1s; }
+.bob-speaking     { width: 28%; animation-delay: 0.2s; }
+.bob-vocab        { width: 40%; animation-delay: 0.3s; }
+.bob-confidence   { width:  5%; animation-delay: 0.4s; }
+
+.lucy-listening   { width: 20%; animation-delay: 0.1s; }
+.lucy-speaking    { width: 34%; animation-delay: 0.2s; }
+.lucy-vocab       { width: 43%; animation-delay: 0.3s; }
+.lucy-confidence  { width:  2%; animation-delay: 0.4s; }
+
+.tiffani-listening   { width: 24%; animation-delay: 0.1s; }
+.tiffani-speaking    { width: 44%; animation-delay: 0.2s; }
+.tiffani-vocab       { width: 19%; animation-delay: 0.3s; }
+.tiffani-confidence  { width: 13%; animation-delay: 0.4s; }

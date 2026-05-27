@@ -1,27 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project_Multi | YuChien(Violet) Lin</title>
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Comment Sentiment Analysis | YuChien(Violet) Lin</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="project_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        
-       <!-- 導覽列 -->
-        <nav>
-            <a href="../index.html" class="nav-logo">Violet✨</a>
-            <div class="nav-links">
-                <a href="about_me.html">About Me</a>  
-                <a href="projects.html">Projects</a> 
-                <a href="contact.html">Contact</a>  
-            </div>
-        </nav>
+  <div class="container">
 
-        <!-- 關於我 / 頁首區塊：與 index.html 完全一致，Heading 保持不變 -->
-        <header>
-            <h1>Fusing Language and Chemistry</h1>
-            <p> Multimodal Embeddings for Molecular Property Prediction</p>
-        </header>
+    <nav>
+      <a href="../index.html" class="nav-logo">Violet✨</a>
+      <div class="nav-links">
+        <a href="../pages/about_me.html">About Me</a>
+        <a href="../pages/project.html">Projects</a>
+        <a href="../pages/contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <header class="article-header">
+      <a href="../pages/project.html" class="article-category-link">Research Project · NLP</a>
+      <h1>What Do Viewers Actually Say?</h1>
+      <p class="article-subtitle">A Sentiment Analysis of English-Learning YouTube Comments</p>
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">2025</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Scope</span>
+          <span class="meta-value">4 Channels · 305+ Videos</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Methods</span>
+          <span class="meta-value">Sentiment · Topic Modeling</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="project-article">
+
+      <div class="ptag-row">
+          <span class="ptag">Python</span>
+          <span class="ptag">NLTK</span>
+          <span class="ptag">OpenAI Batch</span>
+          <span class="ptag">Sentiment Analysis</span>
+          <span class="ptag">Tableau</span>
+          <span class="ptag">Matplotlib</span>
+      </div>
+        
+      <!-- Abstract -->
+      <section class="article-section">
+        <div class="abstract">
+          <span class="abstract-label">Abstract</span>
+          <p>
+            This project examines viewer comment data across four English-learning YouTube channels — Anna, Canadian Bob, Lucy, and Tiffani — to understand what draws audiences to these creators and how, if at all, their content supports second language acquisition. Using sentiment labeling, bigram extraction, and learning-dimension classification, the analysis reveals that viewer engagement clusters heavily around proficiency and learning impact (~50–57%), while channels differ meaningfully in the accent, appearance, and instructional material dimensions that characterize their communities.
+          </p>
+        </div>
+      </section>
+
+      <!-- Research Questions -->
+      <section class="article-section">
+        <h2>1. Research Questions</h2>
+        <div class="rq-grid">
+          <div class="rq-card">
+            <span class="finding-tag">RQ 1</span>
+            <p>What viewer engagement patterns characterize popular English-learning YouTube channels, as reflected in comment sentiment and topic frequency?</p>
+          </div>
+          <div class="rq-card">
+            <span class="finding-tag">RQ 2</span>
+            <p>To what extent do viewer comments indicate self-reported language learning gains across dimensions of listening, speaking, vocabulary, and motivation?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data & Methods -->
+      <section class="article-section">
+        <h2>2. Data &amp; Methods</h2>
+        <p>YouTube comment data was collected from four ESL content creators with substantial audiences. Comments were analyzed using three complementary approaches: bigram frequency analysis (after stop-word removal), keyword-based learning dimension scoring, and OpenAI-assisted multi-label classification to categorize comments into thematic clusters.</p>
+
+        <div class="table-container">
+          <table class="channels-table">
+            <thead>
+              <tr>
+                <th>Channel</th>
+                <th>Videos</th>
+                <th>Dominant Comment Theme</th>
+                <th>Notable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Anna (EFJ)</strong></td>
+                <td>~59</td>
+                <td>Fluency goals, native speaker aspiration</td>
+                <td>High "looks" comment share</td>
+              </tr>
+              <tr>
+                <td><strong>Canadian Bob</strong></td>
+                <td>~141</td>
+                <td>Lesson quality, vocabulary/grammar</td>
+                <td>Highest video output; minimal looks comments</td>
+              </tr>
+              <tr>
+                <td><strong>Lucy</strong></td>
+                <td>~45</td>
+                <td>Accent awareness, never heard before</td>
+                <td>High accent + looks comment share</td>
+              </tr>
+              <tr>
+                <td><strong>Tiffani</strong></td>
+                <td>~60</td>
+                <td>Motivation, story time, "god bless"</td>
+                <td>Strongest confidence/motivation dimension</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="method-list">
+          <span class="pill">Bigram Analysis</span>
+          <span class="pill">NLTK Stop-word Removal</span>
+          <span class="pill">Multi-label Classification</span>
+          <span class="pill">Learning Dimension Scoring</span>
+          <span class="pill">Like-weighted Engagement</span>
+          <span class="pill">Co-occurrence Heatmaps</span>
+        </div>
+      </section>
+
+      <!-- Key Stats -->
+      <section class="article-section">
+        <h2>3. At a Glance</h2>
+        <div class="stat-row">
+          <div class="stat-cell">
+            <span class="num">305+</span>
+            <span class="label">Videos analyzed</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">4</span>
+            <span class="label">ESL channels</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">~55%</span>
+            <span class="label">Comments on proficiency &amp; impact</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">4</span>
+            <span class="label">Learning dimensions coded</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Findings -->
+      <section class="article-section">
+        <h2>4. Findings</h2>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Proficiency &amp; impact dominate across all channels</span>
+            <span class="finding-tag">RQ1</span>
+          </div>
+          <p>Regardless of channel, the largest share of comments (51–57.5%) fell under the Proficiency/Impact cluster — viewers discussing their own learning journey or expressing how the content affected their English. This held even after like-weighting, suggesting it's not just a high-volume effect but a genuinely resonant theme.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Each channel attracts a distinct audience persona</span>
+            <span class="finding-tag">RQ1</span>
+          </div>
+          <p>Bob's comments skew heavily toward Materials (46%) — viewers engage with the instructional content itself. Anna and Lucy attract proportionally more Accent and Looks commentary, suggesting appearance and speech style play a larger role in their audience draw. Tiffani stands out for her high Looks engagement and the warm, motivational tone visible in bigrams like "god bless" and "im ready."</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Top bigrams reveal aspirational framing</span>
+            <span class="finding-tag">RQ1</span>
+          </div>
+          <p>The most common multi-word phrases across channels — "fluent english," "speak english," "native speaker," "learn english" — indicate that viewers frame their engagement in terms of long-term language goals rather than single-video utility. The phrase "never heard" appearing at the top of Lucy's bigrams points to a discovery-oriented audience appreciating novel linguistic content.</p>
+        </div>
+
+        <h2 class="sub-section-title">Do the videos help people learn?</h2>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Speaking &amp; pronunciation is the most self-reported improvement area</span>
+            <span class="finding-tag">RQ2</span>
+          </div>
+          <p>Across Anna, Lucy, and Tiffani, Speaking/Pronunciation was the most mentioned learning dimension in comments that explicitly referenced improvement. Bob's channel is the exception: Vocabulary/Grammar led (~40%), consistent with his lesson-heavy format.</p>
+        </div>
+
+        <div class="dim-grid">
+          <div>
+            <div class="dim-channel">Anna</div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Listening</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill anna-listening"></div></div>
+              <div class="dim-bar-pct">35%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Speaking/Pronun.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill anna-speaking"></div></div>
+              <div class="dim-bar-pct">42%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Vocab/Grammar</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill anna-vocab"></div></div>
+              <div class="dim-bar-pct">20%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Confidence/Motiv.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill anna-confidence"></div></div>
+              <div class="dim-bar-pct">3%</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="dim-channel">Canadian Bob</div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Listening</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill bob-listening"></div></div>
+              <div class="dim-bar-pct">27%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Speaking/Pronun.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill bob-speaking"></div></div>
+              <div class="dim-bar-pct">28%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Vocab/Grammar</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill bob-vocab"></div></div>
+              <div class="dim-bar-pct">40%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Confidence/Motiv.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill bob-confidence"></div></div>
+              <div class="dim-bar-pct">5%</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="dim-channel">Lucy</div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Listening</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill lucy-listening"></div></div>
+              <div class="dim-bar-pct">20%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Speaking/Pronun.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill lucy-speaking"></div></div>
+              <div class="dim-bar-pct">34%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Vocab/Grammar</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill lucy-vocab"></div></div>
+              <div class="dim-bar-pct">43%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Confidence/Motiv.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill lucy-confidence"></div></div>
+              <div class="dim-bar-pct">2%</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="dim-channel">Tiffani</div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Listening</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill tiffani-listening"></div></div>
+              <div class="dim-bar-pct">24%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Speaking/Pronun.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill tiffani-speaking"></div></div>
+              <div class="dim-bar-pct">44%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Vocab/Grammar</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill tiffani-vocab"></div></div>
+              <div class="dim-bar-pct">19%</div>
+            </div>
+            <div class="dim-bar-row">
+              <div class="dim-bar-label">Confidence/Motiv.</div>
+              <div class="dim-bar-track"><div class="dim-bar-fill tiffani-confidence"></div></div>
+              <div class="dim-bar-pct">13%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="finding-block findings-conclusion">
+          <div class="finding-title">
+            <span>Confidence &amp; motivation is Tiffani's unique signal</span>
+            <span class="finding-tag">RQ2</span>
+          </div>
+          <p>At 13%, Tiffani's channel shows substantially higher confidence/motivation mentions than the others (all under 5%). Her bigram data — dominated by "god bless," "im ready," and "good morning" — reinforces a picture of a parasocial, motivationally-oriented viewer base for whom the channel serves more as emotional scaffolding than explicit instruction.</p>
+        </div>
+      </section>
+
+      <!-- Limitations & Takeaways -->
+      <section class="article-section">
+        <h2>5. Limitations &amp; Takeaways</h2>
+        <p>Comment data captures viewer perception and expression, not verified learning outcomes. Self-reported improvement is not equivalent to measured language acquisition. Additionally, the keyword-matching methodology for learning dimensions may over- or under-count certain themes depending on how viewers phrase their experiences across different linguistic and cultural backgrounds.</p>
+
+        <ul class="takeaway-list">
+          <li>Proficiency and impact are the dominant topics across all ESL channels, suggesting viewers come with explicit improvement goals.</li>
+          <li>Channel identity shapes audience behavior: Bob attracts grammar-focused learners; Tiffani attracts motivationally-driven ones.</li>
+          <li>Like-weighting reveals that proficiency-related comments genuinely resonate — they're not just high-volume noise.</li>
+          <li>Appearance and accent commentary are significant for female creators (Anna, Lucy, Tiffani) compared to Bob, pointing to gendered audience dynamics worth further investigation.</li>
+          <li>Co-occurrence patterns in comment labels suggest viewers bundling gratitude with personal self-disclosure, hinting at parasocial relationship formation.</li>
+        </ul>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Yu-Chien Lin. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

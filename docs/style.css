@@ -1,18 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap');
+
 /* ==========================================================================
-   全域設定 (Rose-50 溫柔背景色與 Slate-800 深色字)
+   CSS 變數 — 報紙色系
    ========================================================================== */
-body {
-    background-color: #fff1f2; /* Tailwind rose-50 */
-    color: #1e293b;            /* Slate-800 */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 40px 20px;
+:root {
+  --ink:        #1a1a18;
+  --paper:      #f5f0e8;
+  --paper-dark: #ede7d5;
+  --accent:     #5c4033;
+  --mid:        #6b6355;
+  --rule:       #c8bfac;
 }
 
+/* ==========================================================================
+   全域設定 (修正版)
+   ========================================================================== */
+body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 0; /* 保持 0，不干擾滿版遮罩 */
+}
+
+/* 讓首頁內容在 container 內保持好看的間距 */
 .container {
     max-width: 900px;
     margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 當任何燈箱被啟用時，鎖死大底圖網頁，但允許直屬 body 的燈箱自由滾動 */
+html:has(.project-modal-overlay:target) {
+    overflow: hidden;
 }
 
 /* ==========================================================================
@@ -28,20 +49,22 @@ nav {
 .nav-logo {
     font-weight: bold;
     font-size: 1.2rem;
-    color: #4c0519; /* Rose-950 */
+    color: var(--ink);
     text-decoration: none;
 }
 
 .nav-links a {
-    color: #1e293b;
+    color: var(--ink);
     text-decoration: none;
     margin-left: 20px;
     font-size: 0.95rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.06em;
     transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    color: #f43f5e; /* 懸停時變成玫瑰紅 */
+    color: var(--accent);
 }
 
 /* ==========================================================================
@@ -51,39 +74,39 @@ header {
     text-align: center;
     margin-bottom: 60px;
     padding-bottom: 40px;
-    border-bottom: 1px solid #ffe4e6;
+    border-bottom: 1px solid var(--rule);
 }
 
 header h1 {
-    color: #4c0519; /* Rose-950 */
+    color: var(--ink);
     font-size: 2.8rem;
     margin: 0 0 15px 0;
 }
 
 header p {
-    color: #4c0519;
+    color: var(--mid);
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .header-subtitle {
-    font-size: 1rem; 
-    margin-top: 15px; 
-    color: #64748b;
+    font-size: 1rem;
+    margin-top: 15px;
+    color: var(--mid);
 }
 
 h2 {
-    color: #4c0519;
+    color: var(--ink);
     font-size: 1.8rem;
     margin-bottom: 25px;
-    border-left: 4px solid #fda4af;
+    border-left: 4px solid var(--rule);
     padding-left: 12px;
 }
 
 /* ==========================================================================
-   專案網格與卡片 (含玻璃擬態與浮動動畫)
+   專案網格與卡片
    ========================================================================== */
 .project-grid {
     display: grid;
@@ -92,39 +115,35 @@ h2 {
     margin-bottom: 60px;
 }
 
-/* ✨ 玻璃擬態卡片基礎外觀 */
 .project-card {
-    background-color: rgba(255, 255, 255, 0.75); /* 半透明白 */
-    backdrop-filter: blur(10px);                  /* 霧面玻璃模糊 */
+    background-color: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--rule);
     border-radius: 12px;
     padding: 25px;
     text-decoration: none;
     color: inherit;
     display: block;
-    
-    /* 關鍵：設定平滑漸變動畫，所有的外觀變化在 0.3 秒內輕柔完成 */
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
 }
 
-/* 🔥 滑鼠移上去 (Hover) 的動態反饋 */
 .project-card:hover {
-    transform: translateY(-5px); /* 向上浮起 5px */
-    border-color: #fda4af;       /* 邊框變粉紅 (Rose-300) */
-    box-shadow: 0 10px 25px rgba(244, 63, 94, 0.08); /* 淡淡的發光陰影 */
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 25px rgba(92, 64, 51,0.08);
 }
 
 .project-title {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #4c0519;
+    color: var(--ink);
     margin-bottom: 10px;
 }
 
 .project-desc {
-    color: #475569; 
-    margin: 0; 
+    color: var(--mid);
+    margin: 0;
     font-size: 0.95rem;
 }
 
@@ -136,17 +155,20 @@ h2 {
 }
 
 .tag {
-    background-color: #ffe4e6; /* Rose-100 */
-    color: #9f1239;            /* Rose-800 */
+    background-color: var(--paper-dark);
+    color: var(--accent);
     padding: 3px 10px;
     border-radius: 6px;
     font-size: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
     margin-right: 6px;
     display: inline-block;
+    border: 1px solid var(--rule);
 }
 
 .contact-section {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(250, 247, 242, 0.95);
     border-radius: 12px;
     padding: 30px;
     text-align: center;
@@ -155,56 +177,78 @@ h2 {
 .contact-links a {
     display: inline-block;
     margin: 10px 20px;
-    color: #9f1239;
+    color: var(--accent);
     font-weight: bold;
     text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
 }
 
 .contact-links a:hover {
     text-decoration: underline;
 }
 
+.section-view-all {
+    display: inline-block;     /* 🟢 必加：這樣微調放大動效時才不會卡住 */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent);            /* 原本漂亮的玫瑰暗色 */
+    font-weight: 600;
+    text-decoration: none;     /* 🟢 拿掉超連結預設的下底線 */
+    
+    /* ✨ 平滑過渡動效：當滑鼠移入移出時，會花 0.2 秒柔和轉變，不生硬 */
+    transition: transform 0.2s ease, color 0.2s ease; 
+}
+.section-view-all:hover {
+    color: #4c0519;            /* 🟢 懸浮時顏色變得更深、更有權威感 */
+    transform: scale(1.05);    /* 🟢 關鍵動作：整行字體優雅地放大 1.05 倍 */
+    cursor: pointer;
+}
+
 /* ==========================================================================
-   網頁頁尾 (Footer) 樣式
+   網頁頁尾
    ========================================================================== */
 footer {
     text-align: center;
-    margin-top: 80px;      /* 讓它跟上面的聯絡區塊保持一大段優雅的距離 */
+    margin-top: 80px;
     padding-top: 20px;
-    border-top: 1px solid #ffe4e6; /* 一條淡淡的玫瑰色分界線 */
+    border-top: 1px solid var(--rule);
 }
 
 footer p {
-    color: #64748b;        /* Slate-500 淡淡的灰色，低調且高級 */
-    font-size: 0.85rem;    /* 字體縮小一點 */
+    color: var(--mid);
+    font-size: 0.85rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
     margin: 0;
 }
 
 /* ==========================================================================
-   聯絡表單 (Contact Form) 樣式
+   聯絡表單
    ========================================================================== */
 #contact {
-    text-align: center; /* 🟢 讓外面的標題和副標題水平置中 */
+    text-align: center;
 }
 
 .contact-subtitle {
-    color: #64748b; /* Slate-500 */
+    color: var(--mid);
     font-size: 0.95rem;
     line-height: 1.6;
     max-width: 600px;
-    margin: 0 auto 40px auto; /* 讓副標題自己置中，並跟下方的白卡片保持 40px 完美距離 */
+    margin: 0 auto 40px auto;
 }
 
-/* 🤍 專屬於輸入框表單的白底精緻框框 */
 .contact-card {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.85); /* 柔和的 85% 純白底色 */
-    backdrop-filter: blur(12px);           /* 毛玻璃視覺 */
-    border: 1px solid rgba(255, 255, 255, 0.6); 
-    border-radius: 16px;                   
-    padding: 40px;                         /* 框框內部的舒適留白 */
-    box-shadow: 0 10px 30px rgba(76, 5, 25, 0.05); 
+    background: #EDE7D5;
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px #1d1e2c;
 }
 
 .contact-form {
@@ -217,129 +261,105 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    text-align: left; /* 🟢 確保框框裡面的標籤和輸入框依然靠左對齊，符合閱讀習慣 */
+    text-align: left;
 }
 
 .form-group label {
-    font-weight: 600;
-    color: #4c0519; /* Rose-950 */
+    font-weight: 700;
+    color: var(--ink);
     font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-/* 輸入框設計 */
-.form-group input, 
+.form-group input,
 .form-group textarea {
     padding: 12px 16px;
-    border: 1px solid #f1f5f9; 
+    border: 1px solid var(--rule);
     border-radius: 8px;
-    background: #ffffff;      
-    font-family: inherit;
+    background: var(--paper);
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 0.95rem;
-    color: #1e293b;
+    color: var(--ink);
     transition: all 0.3s ease;
 }
 
-/* 點擊輸入框時的發光特效 */
-.form-group input:focus, 
+.form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #fb7185; 
-    box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px #1d1e2c;
 }
 
-/* 送出按鈕 */
 .submit-btn {
     padding: 14px 28px;
-    background: #4c0519; 
-    color: white;
+    background: var(--ink);
+    color: var(--paper);
     border: none;
     border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
-    letter-spacing: 0.02em;
 }
 
 .submit-btn:hover {
-    background: #9f1239; 
-    transform: translateY(-1px); 
-    box-shadow: 0 4px 12px rgba(159, 18, 57, 0.2);
+    background: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(92, 64, 51,0.2);
 }
 
 /* ==========================================================================
-   首頁四朵雲佈局 (Cloud Layout)
+   首頁四朵雲佈局
    ========================================================================== */
-
-/* 全域寬度防線，確保佈局在不同視窗下看起來都是對稱的 */
-.container, 
+.container,
 #hero {
-    max-width: 900px; /* 根據你之前的設定微調 */
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* 建立 Grid 網格佈局 */
 .hero-layout {
     display: grid;
-    /* 建立三行三列的網格：1樓雲朵 - 中央照片 - 3樓雲朵 */
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: 1fr auto 1fr;
-    gap: 40px; /* 網格之間的距離 */
-    justify-items: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    
-    /* 讓這個區塊在網頁最上面保留一大段距離，看起來更大氣 padding: 60px 0; position: relative; */
-   
+    gap: 40px;
+    justify-items: center;
+    align-items: center;
 }
 
-/* ⭐ 雲朵的基本樣式 (包含 mouse hover 效果) ⭐     padding: 15px; */
 .hero-cloud {
-    background-color: rgba(255, 255, 255, 0.85); 
-    
-    width: 180px;  
-    height: 180px; 
-    
+    background-color: var(--paper-dark);
+    width: 180px;
+    height: 180px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
     text-decoration: none;
-    color: #4c0519; 
-    
+    color: var(--ink);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 /* ==========================================================================
-   四種不同的雲朵形狀 (純程式碼裁切) —— 這裡會精準覆蓋並套用形狀！
+   四種不同的雲朵形狀
    ========================================================================== */
-.hero-cloud.cloud-1 {
-    clip-path: url(#cloud-clip-1);
-}
+.hero-cloud.cloud-1 { clip-path: url(#cloud-clip-1); }
+.hero-cloud.cloud-2 { clip-path: url(#cloud-clip-2); }
+.hero-cloud.cloud-3 { clip-path: url(#cloud-clip-3); }
+.hero-cloud.cloud-4 { clip-path: url(#cloud-clip-4); }
 
-.hero-cloud.cloud-2 {
-    clip-path: url(#cloud-clip-2);
-}
-
-.hero-cloud.cloud-3 {
-    clip-path: url(#cloud-clip-3);
-}
-
-.hero-cloud.cloud-4 {
-    clip-path: url(#cloud-clip-4);
-}
-
-/* ⭐  Mouse Hover 放大效果 (像 project mouse hover) ⭐ */
 .hero-cloud:hover {
-    transform: translateY(-6px) scale(1.06); /* 🟢 關鍵：向上懸浮 5px */
-    box-shadow: 0 10px 20px rgba(159, 18, 57, 0.2); /* 🟢 關鍵：陰影加深 */
-    background-color: #ffffff; /* 變成實白底，增加清晰度 */
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 10px 20px rgba(92, 64, 51,0.15);
+    background-color: #e4ddc8;
 }
 
-/* 雲朵內的文字與 Icon 排版 */
 .cloud-content {
     display: flex;
     flex-direction: column;
@@ -354,152 +374,114 @@ footer p {
 .hero-cloud h3 {
     margin: 0;
     font-size: 1.2rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
 }
 
-/* ⭐ 調整四朵雲在 Grid 中的位置 ⭐ */
-.hero-cloud.left-top {
-    grid-column: 1; /* 左側 */
-    grid-row: 1; /* 頂部 */
-}
+.hero-cloud.left-top    { grid-column: 1; grid-row: 1; }
+.hero-cloud.right-top   { grid-column: 3; grid-row: 1; }
+.hero-cloud.left-bottom { grid-column: 1; grid-row: 3; }
+.hero-cloud.right-bottom{ grid-column: 3; grid-row: 3; }
 
-.hero-cloud.right-top {
-    grid-column: 3; /* 右側 */
-    grid-row: 1; /* 頂部 */
-}
-
-.hero-cloud.left-bottom {
-    grid-column: 1; /* 左側 */
-    grid-row: 3; /* 底部 */
-}
-
-.hero-cloud.right-bottom {
-    grid-column: 3; /* 右側 */
-    grid-row: 3; /* 底部 */
-}
-
-/* ⭐ 中央照片的佈局與樣式 ⭐ */
 .hero-center {
-    grid-column: 2; /* 中央 */
-    grid-row: 2; /* 中央 */
+    grid-column: 2;
+    grid-row: 2;
     padding: 10px;
 }
 
 .hero-photo {
-    width: 250px; /* 🟢 調整照片大小 */
-    height: 250px; /* 🟢 調整照片大小 */
-    border-radius: 50%; /* 🟢 變成圓形照片，看起来更大氣 */
-    object-fit: cover; /* 確保照片不會被壓扁 */
-    
-    border: 5px solid rgba(255, 255, 255, 0.8); /* 🟢 幫照片加個高級感白色邊框 */
-    box-shadow: 0 8px 16px rgba(159, 18, 57, 0.1); /* 與雲朵一致的淡淡陰影 */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--paper-dark);
+    box-shadow: 0 8px 16px rgba(26, 26, 24, 0.1);
 }
-
 
 /* ==========================================================================
-   不開新頁面的專案彈出視窗 (Pure CSS Modal)
+   專案彈出視窗 (Modal)
    ========================================================================== */
-
-/* 1. 覆蓋全螢幕的黑色半透明背景 */
 .project-modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(26, 26, 24, 0.6);
     backdrop-filter: blur(5px);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 9999;
+    overflow-y: auto;
     
+    /* ── 核心解法：隱藏與顯示的黃金組合 ── */
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    visibility: hidden; /* 👈 關鍵：這行會把隱形的斗篷徹底拿走，不擋住底下的元素 */
     
-    /* 🟢 新增：讓使用者滑到黑色區域時，滑鼠變成手指，暗示這裡可以點擊關閉 */
-    cursor: pointer; 
-    /* 🟢 新增：拿掉超連結預設的下底線 */
-    text-decoration: none; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* 🪄 核心黑魔法：當卡片被點擊，網址對準這個 ID 時，瞬間浮現 */
+/* 當特定的 id 被點擊觸發成為 target 時 */
 .project-modal-overlay:target {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible; /* 👈 關鍵：只有被點開的那個燈箱，才會現形並接收滾動 */
 }
 
-/* 2. 白色的詳細內容視窗主體 */
 .project-modal-window {
-    background-color: #ffffff;
-    cursor: default; /* 確保在白色視窗內是正常的滑鼠指標 */
-    
-    /* 以下維持原本的設定 */
+    background-color: var(--paper);
     width: 90%;
     max-width: 700px;
-    max-height: 80vh;
-    overflow-y: auto;
+    margin: 60px auto; 
     padding: 40px;
     border-radius: 20px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--rule);
+    box-shadow: 0 20px 40px rgba(26, 26, 24, 0.2);
 }
-
-.project-modal-overlay:target .project-modal-window {
-    transform: translateY(0);
-}
-
-/* 3. 右上角精緻的關閉按鈕 */
+/* ── 3. 關閉按鈕與內容文字（保持乾淨） ── */
 .modal-close-btn {
     position: absolute;
     top: 20px;
     right: 25px;
     font-size: 2rem;
-    color: #9f1239; /* 你的玫瑰色系列 */
+    color: var(--accent);
     text-decoration: none;
-    transition: color 0.2s ease;
     line-height: 1;
 }
 
 .modal-close-btn:hover {
-    color: #4c0519;
+    color: var(--ink);
 }
 
-/* 4. 視窗內部的文字詳細排版 */
 .modal-detail-content h2 {
-    color: #4c0519;
+    color: var(--ink);
     margin-top: 0;
     font-size: 1.8rem;
 }
 
 .modal-subtitle {
-    color: #6b7280;
+    color: var(--mid);
     font-size: 1rem;
+    font-family: 'DM Mono', monospace;
     margin-bottom: 15px;
 }
 
 .modal-detail-content h3 {
-    color: #9f1239;
+    color: var(--accent);
     margin-top: 25px;
     font-size: 1.3rem;
 }
 
-.modal-detail-content p, 
+.modal-detail-content p,
 .modal-detail-content li {
-    line-height: 1.6;
-    color: #374151;
+  line-height: 1.75;
+  color: var(--ink);
 }
 
-/* 照片或圖表佔位區 */
 .modal-image-placeholder {
-    background-color: #f3f4f6;
-    border: 2px dashed #e5e7eb;
+    background-color: var(--paper-dark);
+    border: 2px dashed var(--rule);
     border-radius: 12px;
     padding: 40px 20px;
     text-align: center;
-    color: #9ca3af;
+    color: var(--mid);
     margin: 20px 0;
 }
+
