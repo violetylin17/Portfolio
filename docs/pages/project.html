@@ -103,38 +103,59 @@
                     </div>
                 </a> <!-- #project-6 -->
 
-                <!-- Project 7: cyberbully -->
-                <a href="../projects/project_multichem.html" class="project-card">
-                    <div class="project-title">🧪 Multi-Modal Molecular Property Prediction</div>
-                    <p class="project-desc">Developed a multi-modal fusion framework for computational chemistry by integrating structural embeddings from ChemBERTa and text representations from BGE-M3 to enhance regression accuracy.</p>
+                <!-- Project: Cyberbullying Detection -->
+                <a href="#modal-cyberbully" class="project-card">
+                    <div class="project-title">🛡️ Cyberbullying Tweet Detection</div>
+                    <p class="project-desc">Compared classical ML (Decision Tree, SVM, Logistic Regression) and a CNN model to classify ~47K tweets into 6 cyberbullying categories, achieving up to 82.5% accuracy using TF-IDF features and word embeddings.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">ChemBERTa</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">scikit-learn</span>
                         <span class="tag">NLP</span>
+                        <span class="tag">CNN</span>
                     </div>
-                </a> <!-- #project-6 -->
+                </a> <!-- #project-7 -->
 
-                <!-- Project 8: anomoly detection -->
-                <a href="../projects/project_multichem.html" class="project-card">
-                    <div class="project-title">🧪 Multi-Modal Molecular Property Prediction</div>
-                    <p class="project-desc">Developed a multi-modal fusion framework for computational chemistry by integrating structural embeddings from ChemBERTa and text representations from BGE-M3 to enhance regression accuracy.</p>
+
+                <!-- Project: CNN Malware Classification -->
+                <a href="#modal-malware" class="project-card">
+                    <div class="project-title">🦠 CNN Malware Family Classification</div>
+                    <p class="project-desc">Built and tuned a Convolutional Neural Network to classify 25 malware families from grayscale binary visualizations, achieving 96.9% test accuracy on ~9,000 images.</p>
                     <div class="tags">
                         <span class="tag">Python</span>
-                        <span class="tag">ChemBERTa</span>
-                        <span class="tag">NLP</span>
+                        <span class="tag">TensorFlow / Keras</span>
+                        <span class="tag">CNN</span>
+                        <span class="tag">Cybersecurity</span>
                     </div>
-                </a> <!-- #project-8 -->
-
-                 <!-- Project 9: water source -->
-                <a href="../projects/project_multichem.html" class="project-card">
-                    <div class="project-title">🧪 Multi-Modal Molecular Property Prediction</div>
-                    <p class="project-desc">Developed a multi-modal fusion framework for computational chemistry by integrating structural embeddings from ChemBERTa and text representations from BGE-M3 to enhance regression accuracy.</p>
+                </a> <!-- #project 8 -->
+                
+                <!-- Project: Crime & Socioeconomic Analysis -->
+                <a href="#modal-crime" class="project-card">
+                    <div class="project-title">📊 Crime & Socioeconomic Factor Explorer</div>
+                    <p class="project-desc">
+                        Built an interactive R Shiny dashboard to explore relationships between regional crime rates and socioeconomic indicators — including education, income, poverty, and employment — with dynamic scatter plots, regression overlays, and live correlation statistics.
+                    </p>
                     <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ChemBERTa</span>
-                        <span class="tag">NLP</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Shiny</span>
+                        <span class="tag">ggplot2</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Statistical Analysis</span>
                     </div>
                 </a> <!-- #project-9 -->
+
+
+                 <!-- Project: water source -->
+                <a href="#modal-water" class="project-card">
+                    <div class="project-title">💧 Dissolved Oxygen & Water Quality Analysis</div>
+                    <p class="project-desc">Observational regression study on water quality data from Back Bay National Wildlife Refuge (1994–2019), examining associations between dissolved oxygen and environmental variables using full and reduced linear models.</p>
+                    <div class="tags">
+                        <span class="tag">R</span>
+                        <span class="tag">Linear Regression</span>
+                        <span class="tag">Statistics</span>
+                        <span class="tag">Environmental Data</span>
+                    </div>
+                </a><!-- #project-10 -->
 
                 <!-- 💡 未來你想放更多 Data Science 專案，只要複製上面的 <a> 區塊往下貼，並把內容換掉即可！ -->
 
@@ -221,7 +242,7 @@
             </div>
         </div>
 
-
+        <!-- Project 3: MultiChem-->
         <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
             <div class="project-modal-window" onclick="event.stopPropagation();">
                 <a href="#" class="modal-close-btn">&times;</a>
@@ -341,6 +362,156 @@
                 </div>
             </div>
         </div>
+
+        <!-- Project: Cyberbullying Detection -->
+        <div id="modal-cyberbully" class="project-modal-overlay" onclick="window.location.hash = '#';">
+            <div class="project-modal-window" onclick="event.stopPropagation();">
+                <a href="#" class="modal-close-btn">&times;</a>
+                <div class="modal-detail-content">
+                    <h2>🛡️ Cyberbullying Tweet Detection</h2>
+                    <p class="modal-subtitle">Team Project · Machine Learning for Cybersecurity | 2025</p>
+                    <hr>
+                    <h3>Project Overview</h3>
+                    <p>This project builds a multi-class tweet classifier to detect and categorize cyberbullying on social media. Using the CBTweets dataset (~47K labeled tweets), we trained and compared four models — Decision Tree, Linear SVM, Logistic Regression, and a CNN — to classify tweets into six categories: age-based, gender-based, ethnicity-based, religion-based, other cyberbullying, and non-cyberbullying.</p>
+                        <img src="../figures/cyber_predict.png" alt="Cyberbully prediction" style="width:100%; border-radius:8px; margin:20px 0;">
+                    <h3>Technical Highlight 1 — Classical ML Pipeline</h3>
+                    <ul>
+                        <li>Applied a <strong>text preprocessing pipeline</strong> to strip URLs, @mentions, hashtags, and non-alphabetic characters, followed by lowercasing and tokenization.</li>
+                        <li>Used <strong>TF-IDF vectorization</strong> (with English stop-word removal) as input features for Decision Tree, Linear SVM, and Logistic Regression models.</li>
+                        <li>Tuned hyperparameters via <strong>5-fold GridSearchCV</strong>; Logistic Regression (L1, C=1) achieved the best test accuracy at <strong>82.5%</strong>.</li>
+                    </ul>
+                    <h3>Technical Highlight 2 — CNN with Word Embeddings</h3>
+                    <ul>
+                        <li>Built a <strong>CNN classifier</strong> using a Keras Embedding layer (vocab size 5,000, dim 128) followed by Conv1D, GlobalMaxPooling1D, Dropout (0.5), and a softmax Dense layer — no manual feature engineering.</li>
+                        <li>Filtered tweets exceeding 200 tokens and padded sequences to a fixed length for batch training over 5 epochs.</li>
+                        <li>CNN matched classical models at <strong>~81.8% test accuracy</strong>, demonstrating that learned embeddings are competitive with TF-IDF on short social media text.</li>
+                    </ul>
+                    <h3>Tags & Technologies</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow / Keras</span>
+                        <span class="tag">scikit-learn</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">TF-IDF</span>
+                        <span class="tag">CNN</span>
+                        <span class="tag">GridSearchCV</span>
+                        <span class="tag">pandas</span>
+                        <span class="tag">seaborn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- project 8: CNN malware -->
+        <div id="modal-malware" class="project-modal-overlay" onclick="window.location.hash = '#';">
+            <div class="project-modal-window" onclick="event.stopPropagation();">
+                <a href="#" class="modal-close-btn">&times;</a>
+                <div class="modal-detail-content">
+                <h2>🦠 CNN Malware Family Classification</h2>
+                <p class="modal-subtitle">Graduate Coursework · Machine Learning for Cybersecurity (MIT 3.681) | 2025<br>
+                <em style="font-size:0.85em;color:#888;">25-class image classification · 9,294 malware binary visualizations</em></p>
+                <hr>
+                <h3>Project Overview</h3>
+                <p>Designed and trained a CNN to classify malware binaries into 25 distinct family categories. Malware executables were pre-converted into grayscale images — a standard visualization technique that exposes structural byte patterns — and fed into an image classification pipeline built with TensorFlow/Keras.</p>
+                    <img src="../figures/malware.png" alt="Malware Prediction" style="width:100%; border-radius:8px; margin:20px 0;">
+
+                <h3>Technical Highlights</h3>
+                <ul>
+                    <li>Loaded and split 7,423 training images into an <strong>80/20 train-validation split</strong> using <code>tf.keras.preprocessing.image_dataset_from_directory</code> with a fixed random seed for reproducibility.</li>
+                    <li>Built a <strong>sequential CNN</strong> with three Conv2D + MaxPooling blocks (32→64→128 filters), followed by a Dense(256) layer with 0.5 Dropout for regularization — 44.9M parameters total.</li>
+                    <li>Tuned hyperparameters including <strong>learning rate (Adam, lr=0.0005)</strong>, number of epochs (30), filter sizes, and dense layer width to push validation accuracy above the 95% target.</li>
+                    <li>Monitored training with per-epoch <strong>accuracy and loss curves</strong> to detect overfitting; validation accuracy plateaued near 97% while training continued to improve, indicating mild overfitting.</li>
+                    <li>Evaluated the final model on a held-out <strong>test set of 1,871 images</strong> across all 25 classes.</li>
+                </ul>
+                <h3>Key Results</h3>
+                <p>The model achieved <strong>97.3% validation accuracy</strong> and <strong>96.9% test accuracy</strong>, exceeding the 95% course benchmark. Validation accuracy was marginally higher than test accuracy, consistent with the model having seen the validation distribution implicitly through early stopping decisions during tuning.</p>
+                <h3>Tags & Technologies</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">TensorFlow / Keras</span>
+                    <span class="tag">CNN</span>
+                    <span class="tag">Image Classification</span>
+                    <span class="tag">Malware Analysis</span>
+                    <span class="tag">Cybersecurity</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Project: Crime & Socioeconomic Analysis -->
+        <div id="modal-crime" class="project-modal-overlay" onclick="window.location.hash = '#';">
+            <div class="project-modal-window" onclick="event.stopPropagation();">
+                <a href="#" class="modal-close-btn">&times;</a>
+                <div class="modal-detail-content">
+                    <h2>📊 Crime & Socioeconomic Factor Explorer</h2>
+                    <!-- <p class="modal-subtitle">Graduate Coursework · Data Science (613-002, American University) | 2025<br> -->
+                    <em style="font-size:0.85em;color:#888;">Interactive dashboard · 1,000-region dataset · 6 socioeconomic variables</em></p>
+                    <hr>
+                    <h3>Project Overview</h3>
+                    <p>Developed an interactive R Shiny web application to investigate how socioeconomic conditions relate to crime rates across 1,000 synthetic regions. The dashboard allows users to freely explore pairwise relationships between variables including <strong>Crime Rate, Education Level, Employment Rate, Median Income, Poverty Rate, and Population Density</strong> — enabling data-driven hypothesis exploration without any coding required.</p>
+
+                    <h3>Technical Highlights</h3>
+                    <ul>
+                        <li>Built a fully reactive <strong>Shiny UI</strong> with dynamic axis variable selectors, letting users choose any two variables for the scatter plot at runtime using <code>selectInput</code> and <code>.data[[]]</code> tidy evaluation.</li>
+                        <li>Added optional <strong>OLS regression line overlay</strong> via <code>geom_smooth(method = "lm")</code>, toggled by a checkbox — letting users visually assess linear trends on demand.</li>
+                        <li>Exposed <strong>interactive visual controls</strong> (point size and alpha sliders) to help users manage overplotting when exploring dense data distributions.</li>
+                        <li>Computed and displayed live <strong>Pearson correlation</strong> between any selected variable pair using <code>cor()</code> with pairwise-complete observations.</li>
+                        <li>Rendered per-variable <strong>summary statistics</strong> (min, max, quartiles, mean) inline within the sidebar for quick distributional awareness.</li>
+                        <li>Styled the app with a <strong>gradient background</strong> using <code>shinyWidgets::setBackgroundColor</code> and a clean <code>theme_minimal()</code> plot aesthetic.</li>
+                    </ul>
+
+                    <h3>Key Results</h3>
+                    <p>The dashboard revealed intuitive but quantifiable relationships in the dataset — notably a <strong>negative correlation between median income and crime rate</strong>, and a <strong>positive correlation between poverty rate and crime rate</strong> — consistent with well-established criminological patterns. The app made these patterns immediately legible to non-technical users through interactive exploration rather than static charts.</p>
+
+                    <h3>Tags & Technologies</h3>
+                    <div class="tags">
+                        <span class="tag">R</span>
+                        <span class="tag">Shiny</span>
+                        <span class="tag">ggplot2</span>
+                        <span class="tag">dplyr</span>
+                        <span class="tag">shinyWidgets</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Statistical Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- project: refugee water-->
+        <div id="modal-water" class="project-modal-overlay" onclick="window.location.hash = '#';">
+            <div class="project-modal-window" onclick="event.stopPropagation();">
+                <a href="#" class="modal-close-btn">&times;</a>
+                <div class="modal-detail-content">
+                <h2>💧 Dissolved Oxygen & Water Quality Analysis</h2>
+                <p class="modal-subtitle">Graduate Coursework · Statistical Methods | 2024<br>
+                <em style="font-size:0.85em;color:#888;">Back Bay National Wildlife Refuge, Virginia Beach · 1994–2019</em></p>
+                <hr>
+                <h3>Project Overview</h3>
+                <p>Observational regression study examining which water quality variables — water temperature, salinity, year, and pH — are associated with dissolved oxygen (DO) levels at a federally monitored wildlife refuge. Built and compared full and reduced linear regression models using bi-weekly sampling data spanning 25 years.</p>
+                    <img src="../figures/refugee_water.png" alt="Refugee Water correlation" style="width:100%; border-radius:8px; margin:20px 0;">
+                <h3>Technical Highlights</h3>
+                <ul>
+                    <li>Built a <strong>full multiple regression model</strong> with four predictors (water temperature, salinity, year, pH); identified pH as non-significant (p = 0.197, two-sided) and removed it via model selection.</li>
+                    <li>Compared full vs. reduced models using <strong>AIC, BIC, adjusted R², and extra-sum-of-squares F-test</strong> — reduced model showed lower BIC (5020.66 vs. 5026.08) with equivalent explanatory power (adj. R² = 0.324).</li>
+                    <li>Validated model assumptions via <strong>residual plots and QQ-plots</strong>; interpreted failed Shapiro-Wilk tests (p = 0.017 / 0.023) in the context of large sample size (n = 1,338).</li>
+                    <li>Applied <strong>correlation analysis</strong> across all quantitative variables; identified a moderate negative correlation between DO and water temperature (r = −0.502).</li>
+                </ul>
+                <h3>Key Finding</h3>
+                <p>Water temperature, salinity, and year are each significantly associated with dissolved oxygen levels (p &lt; 0.0001). pH showed no significant association. As an observational study, no causal inference can be drawn.</p>
+                <h3>Tags & Technologies</h3>
+                <div class="tags">
+                    <span class="tag">R</span>
+                    <span class="tag">Linear Regression</span>
+                    <span class="tag">Model Selection</span>
+                    <span class="tag">AIC / BIC</span>
+                    <span class="tag">Environmental Data</span>
+                    <span class="tag">Statistics</span>
+                </div>
+                </div>
+            </div>
+        </div>
+            
 
     </div>
 

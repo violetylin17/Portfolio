@@ -9,21 +9,156 @@
 <body>
 
     <div class="container">
-        
-       <!-- 導覽列 -->
+
         <nav>
             <a href="../index.html" class="nav-logo">Violet✨</a>
             <div class="nav-links">
-                <a href="about_me.html">About Me</a>  <!-- <a href="../index.html">Home</a> -->
-                <a href="project.html">Projects</a> 
-                <a href="contact.html">Contact</a>  <!-- <a href="../index.html#contact">Contact</a> -->
+                <a href="about_me.html">About Me</a>
+                <a href="project.html">Projects</a>
+                <a href="contact.html">Contact</a>
             </div>
         </nav>
 
+        <!-- Intro: headshot + bio -->
+        <section class="about-intro">
+            <img src="../figures/photo/library.png" alt="Violet Lin" class="about-photo">
+
+            <div class="about-intro-text">
+                <h1>YuChien (Violet) Lin</h1>
+                    <h4>MS in Data Science — American University</h4>
+                    <h4>MS in Biotechnology — Yang Ming Chiao Tung University</h4>
+
+                <!-- <p class="role">Data Scientist &amp; Data Engineer</p>
+                <p>
+                    MS Data Science Graduate at American University, with a prior MS in Biotechnology
+                    and a background spanning scientific computing and applied machine learning.
+                </p>
+                <p>
+                    I build automated, end-to-end data workflows — from HPC-based scientific pipelines
+                    to AI batch-processing systems. I approach problems with structured, reproducible methods
+                    and use AI tools to validate ideas and move faster.
+                </p> -->
+                <div class="tags" style="margin-top:10px;">
+                    <a href="https://github.com/violetylin17" target="_blank" class="tag">GitHub</a>
+                    <a href="https://www.linkedin.com/in/yuchien170/" target="_blank" class="tag">LinkedIn</a>
+                    <a href="mailto:violet17lin@gmail.com" class="tag">Email</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section style="margin-bottom:60px;">
+            <h2>Experience</h2>
+
+            <div class="timeline-entry">
+                <h3>Data Scientist — LunchWith.AI</h3>
+                <p class="timeline-meta">Nov 2025 · Remote</p>
+                <ul>
+                    <li>Built an automated NLP pipeline to process 50k+ YouTube comments via the OpenAI Batch API, cutting processing time from 10 hrs to 4 hrs.</li>
+                    <li>Optimized batch processing and token usage, reducing API costs by 35% while maintaining model accuracy.</li>
+                    <li>Built data monitoring and alerting systems for pipeline health tracking, reducing pipeline failures.</li>
+                    <li>Delivered analytics-ready datasets and Tableau dashboards to support stakeholder decision-making.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-entry">
+                <h3>Computational Chemist — Biosystems Simulation Lab</h3>
+                <p class="timeline-meta">Sep 2021 – May 2024 · Taiwan</p>
+                <ul>
+                    <li>Developed and maintained data pipelines using Python and Apache Spark to process 50K+ large-scale simulation outputs.</li>
+                    <li>Designed structured datasets and performed data modeling and transformation to support downstream statistical analysis.</li>
+                    <li>Performed exploratory data analysis on high-dimensional biological data, supporting cross-disciplinary research findings.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section style="margin-bottom:60px;">
+            <h2>Education</h2>
+
+            <div class="timeline-entry">
+                <h3>MS in Data Science — American University</h3>
+                <p class="timeline-meta">Washington, D.C. · Expected May 2026</p>
+            </div>
+
+            <div class="timeline-entry">
+                <h3>MS in Biotechnology — Yang Ming Chiao Tung University</h3>
+                <p class="timeline-meta">Taiwan · Sep 2021 – May 2024</p>
+            </div>
+
+            <div class="timeline-entry">
+                <h3>BS in Life Science — Fu Jen Catholic University</h3>
+                <p class="timeline-meta">Taiwan · Sep 2017 – Jul 2021</p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section style="margin-bottom:60px;">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+
+                <div class="skill-group">
+                    <h4>Programming</h4>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Bash</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>ML &amp; AI</h4>
+                    <div class="tags">
+                        <span class="tag">NLP</span>
+                        <span class="tag">Transformers</span>
+                        <span class="tag">Llama 3.1</span>
+                        <span class="tag">OpenAI API</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Data Engineering</h4>
+                    <div class="tags">
+                        <span class="tag">Apache Spark</span>
+                        <span class="tag">PySpark</span>
+                        <span class="tag">HPC</span>
+                        <span class="tag">ETL Pipelines</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Cloud &amp; Databases</h4>
+                    <div class="tags">
+                        <span class="tag">AWS EC2</span>
+                        <span class="tag">AWS S3</span>
+                        <span class="tag">AWS RDS</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Tools &amp; Methods</h4>
+                    <div class="tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Scrum / Agile</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Seaborn</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <footer>
             <p>&copy; 2026 Yu-Chien Lin. All rights reserved.</p>
         </footer>
+
     </div>
 
 </body>

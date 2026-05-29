@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyberbullying Tweet Detection | YuChien(Violet) Lin</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="project_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+      <a href="../index.html" class="nav-logo">Violet✨</a>
+      <div class="nav-links">
+        <a href="../pages/about_me.html">About Me</a>
+        <a href="../pages/project.html">Projects</a>
+        <a href="../pages/contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <header class="article-header">
+      <a href="../pages/project.html" class="article-category-link">ML for Cybersecurity · NLP</a>
+      <h1>Can a Model Learn What Counts as Cyberbullying?</h1>
+      <p class="article-subtitle">Multi-Class Tweet Classification Across 6 Harassment Categories</p>
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">2025</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Dataset</span>
+          <span class="meta-value">~47K tweets · 6 classes</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Best Accuracy</span>
+          <span class="meta-value">82.5% (Logistic Regression)</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="project-article">
+
+      <div class="ptag-row">
+        <span class="ptag">Python</span>
+        <span class="ptag">scikit-learn</span>
+        <span class="ptag">TensorFlow</span>
+        <span class="ptag">NLP</span>
+        <span class="ptag">TF-IDF</span>
+        <span class="ptag">CNN</span>
+        <span class="ptag">GridSearchCV</span>
+      </div>
+
+      <!-- Abstract -->
+      <section class="article-section">
+        <div class="abstract">
+          <span class="abstract-label">Abstract</span>
+          <p>
+            Cyberbullying on social media is pervasive but difficult to detect automatically — the same words carry different intent depending on context, target, and tone. This project tackles the problem as a multi-class classification task using the CBTweets dataset (~47K labeled tweets across 6 categories). We benchmark four models — Decision Tree, Linear SVM, Logistic Regression, and a CNN — and find that while identity-based harassment (age, ethnicity, religion) is learnable with high confidence, ambiguous categories like <em>other_cyberbullying</em> and <em>not_cyberbullying</em> remain challenging for all approaches.
+          </p>
+        </div>
+      </section>
+
+      <!-- Dataset -->
+      <section class="article-section">
+        <h2>1. Dataset</h2>
+        <p>The CBTweets dataset contains 47,692 tweets pre-labeled into six cyberbullying categories. The class distribution is roughly balanced across the five bullying types, making it suitable for direct multi-class classification without oversampling.</p>
+
+        <div class="table-container">
+          <table class="channels-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>age</strong></td>
+                <td>Harassment targeting someone's age group</td>
+              </tr>
+              <tr>
+                <td><strong>ethnicity</strong></td>
+                <td>Racial or ethnic slurs and attacks</td>
+              </tr>
+              <tr>
+                <td><strong>gender</strong></td>
+                <td>Sexist or gender-based abuse</td>
+              </tr>
+              <tr>
+                <td><strong>religion</strong></td>
+                <td>Attacks targeting religious identity</td>
+              </tr>
+              <tr>
+                <td><strong>other_cyberbullying</strong></td>
+                <td>Harassment not fitting the above types</td>
+              </tr>
+              <tr>
+                <td><strong>not_cyberbullying</strong></td>
+                <td>Negative or edgy content that is not harassment</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-cell">
+            <span class="num">47,692</span>
+            <span class="label">Total tweets</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">6</span>
+            <span class="label">Classes</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">~19</span>
+            <span class="label">Median tweet length (tokens)</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">4</span>
+            <span class="label">Models compared</span>
+          </div>
+        </div>
+
+        <p style="margin-top:1.2rem;">A small number of tweets exceeded 200 tokens (outliers from thread-style content) and were removed before model training, leaving 47,397 clean samples. Tweet length followed a right-skewed distribution with Q1=12, median=19, and Q3=32 tokens — compact text that limits context for classifiers.</p>
+      </section>
+
+      <!-- Methods -->
+      <section class="article-section">
+        <h2>2. Methods</h2>
+
+        <h3 class="sub-section-title">2.1 Text Preprocessing</h3>
+        <p>All tweets were cleaned using a unified pipeline before being passed to any model. The goal was to retain only semantically meaningful word tokens.</p>
+        <div class="method-list">
+          <span class="pill">URL removal</span>
+          <span class="pill">@mention stripping</span>
+          <span class="pill">Hashtag removal</span>
+          <span class="pill">Non-alphabetic filtering</span>
+          <span class="pill">Lowercasing</span>
+          <span class="pill">Length filtering (≤ 200 tokens)</span>
+        </div>
+
+        <h3 class="sub-section-title">2.2 Classical ML — TF-IDF + Classifiers</h3>
+        <p>For Decision Tree, Linear SVM, and Logistic Regression, cleaned tweets were vectorized using <strong>TF-IDF</strong> with English stop-word removal, producing sparse feature matrices. Each model was tuned via <strong>5-fold GridSearchCV</strong> on 80% of the data, evaluated on the held-out 20%.</p>
+        <div class="method-list">
+          <span class="pill">TF-IDF vectorization</span>
+          <span class="pill">5-fold GridSearchCV</span>
+          <span class="pill">80 / 20 train-test split</span>
+          <span class="pill">random_state=42</span>
+        </div>
+
+        <h3 class="sub-section-title">2.3 Deep Learning — CNN</h3>
+        <p>The CNN model used a learned <strong>Embedding layer</strong> (vocab size 5,000, dimension 128) instead of hand-crafted TF-IDF features. Sequences were padded to a fixed length of 200 tokens. The architecture: Embedding → Conv1D (128 filters, kernel 5) → GlobalMaxPooling1D → Dropout (0.5) → Dense (64, ReLU) → Dense (6, softmax).</p>
+        <div class="method-list">
+          <span class="pill">Keras Tokenizer (vocab=5,000)</span>
+          <span class="pill">Embedding dim=128</span>
+          <span class="pill">Conv1D + GlobalMaxPooling</span>
+          <span class="pill">Dropout 0.5</span>
+          <span class="pill">Adam optimizer</span>
+          <span class="pill">5 epochs</span>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="article-section">
+        <h2>3. Results</h2>
+
+        <div class="table-container">
+          <table class="channels-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Best Hyperparameters</th>
+                <th>CV Accuracy</th>
+                <th>Test Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Decision Tree</strong></td>
+                <td>criterion=entropy, max_depth=30</td>
+                <td>79.3%</td>
+                <td>79.5%</td>
+              </tr>
+              <tr>
+                <td><strong>Linear SVM</strong></td>
+                <td>C=0.1, penalty=l2</td>
+                <td>82.0%</td>
+                <td>81.9%</td>
+              </tr>
+              <tr>
+                <td><strong>Logistic Regression</strong></td>
+                <td>C=1, penalty=l1</td>
+                <td>81.9%</td>
+                <td><strong>82.5%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>CNN</strong></td>
+                <td>Embedding + Conv1D, 5 epochs</td>
+                <td>—</td>
+                <td>81.8%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Identity-based categories are highly learnable</span>
+            <span class="finding-tag">Finding 1</span>
+          </div>
+          <p>Age, ethnicity, and religion categories achieved F1 scores of 92–97% across all models. These categories contain consistent lexical signals — slurs, group identifiers, and attack patterns — that are reliably picked up by both TF-IDF weights and convolutional filters.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Ambiguous categories remain the bottleneck</span>
+            <span class="finding-tag">Finding 2</span>
+          </div>
+          <p><em>not_cyberbullying</em> and <em>other_cyberbullying</em> had the lowest F1 scores across all models (40–66%). The boundary between edgy-but-acceptable language and genuine harassment is ambiguous even to human annotators, and this ambiguity propagates directly into model confusion — the two classes are consistently misclassified into each other.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>CNN matches classical ML without feature engineering</span>
+            <span class="finding-tag">Finding 3</span>
+          </div>
+          <p>The CNN achieved 81.8% test accuracy — comparable to Linear SVM and Logistic Regression — without any TF-IDF vectorization or stop-word removal. This suggests that for short social media text, learned word embeddings can substitute for hand-crafted sparse features, and that the performance ceiling for this task is largely determined by label ambiguity rather than model capacity.</p>
+        </div>
+      </section>
+
+      <!-- Limitations & Takeaways -->
+      <section class="article-section">
+        <h2>4. Limitations &amp; Takeaways</h2>
+        <p>All models struggle with the <em>not_cyberbullying</em> / <em>other_cyberbullying</em> boundary — a problem rooted in annotation ambiguity rather than model weakness. The dataset is also Twitter-specific; models trained here may not generalize to platforms with different norms (Reddit, Discord, TikTok comments). Extending to contextual models (e.g., BERT fine-tuned on tweet data) would likely improve performance on the ambiguous categories.</p>
+
+        <ul class="takeaway-list">
+          <li>Logistic Regression with L1 regularization narrowly outperforms all other models — a strong, interpretable baseline for short-text classification.</li>
+          <li>CNN performance is on par with classical ML, validating learned embeddings as a viable alternative to TF-IDF on this scale.</li>
+          <li>The hard ceiling (~82%) is driven by label ambiguity in <em>other_cyberbullying</em> and <em>not_cyberbullying</em>, not model expressiveness.</li>
+          <li>Word clouds per category reveal distinct vocabulary clusters — slurs for ethnicity/religion, gendered terms for gender — confirming that lexical features are genuinely informative for identity-based categories.</li>
+          <li>Future work: fine-tune a Twitter-pretrained BERT (e.g., BERTweet) to capture sarcasm, code-switching, and context that n-gram features miss.</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Yu-Chien Lin. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

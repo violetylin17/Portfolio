@@ -226,6 +226,172 @@ footer p {
 }
 
 /* ==========================================================================
+   首頁 Hero：照片 + 文字並排
+   ========================================================================== */
+header {
+    text-align: left !important;
+}
+
+.header-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.header-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--rule);
+    box-shadow: 0 8px 24px rgba(26, 26, 24, 0.12);
+    display: block;
+}
+
+.header-layout h1 {
+    font-size: 2.6rem;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.header-layout p {
+    margin: 0 0 10px 0;
+    max-width: 100%;
+}
+
+@media (max-width: 620px) {
+    .header-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .header-photo {
+        width: 180px;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   About Me 頁面
+   ========================================================================== */
+.about-intro {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.about-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--paper-dark);
+    box-shadow: 0 4px 12px rgba(26, 26, 24, 0.1);
+    flex-shrink: 0;
+}
+
+.about-photo-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px dashed var(--rule);
+    background: var(--paper-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--mid);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.about-intro-text h1 {
+    margin: 0 0 6px 0;
+    font-size: 2rem;
+}
+
+.about-intro-text .role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+}
+
+.about-intro-text p {
+    color: var(--mid);
+    font-size: 0.95rem;
+    margin: 0 0 16px 0;
+    max-width: 540px;
+}
+
+.timeline-entry {
+    margin-bottom: 32px;
+    padding-left: 20px;
+    border-left: 3px solid var(--rule);
+}
+
+.timeline-entry h3 {
+    margin: 0 0 2px 0;
+    font-size: 1.05rem;
+    color: var(--ink);
+}
+
+.timeline-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--mid);
+    margin: 0 0 10px 0;
+    letter-spacing: 0.04em;
+}
+
+.timeline-entry ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+    color: var(--mid);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.timeline-entry ul li {
+    margin-bottom: 5px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.skill-group h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+    .about-intro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-intro-text p {
+        max-width: 100%;
+    }
+}
+
+/* ==========================================================================
    聯絡表單
    ========================================================================== */
 #contact {
