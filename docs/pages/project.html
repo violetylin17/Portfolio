@@ -43,7 +43,7 @@
                 </a><!-- #project-1 -->
 
                 <!-- Project 2: reddit -->
-                 <a href="#reddit-data" class="project-card">
+                 <a href="../projects/project_reddit.html" class="project-card">
                     <div class="project-title">📊 Reddit AI Trend Analysis</div>
                     <p class="project-desc">
                         Built a scalable NLP pipeline to clean, structure, and analyze large volumes of Reddit comments, uncovering sentiment shifts and emerging discussion patterns around artificial intelligence.
@@ -57,7 +57,7 @@
                 </a> <!-- #project-2 -->
 
                 <!-- Project 3: multi-chem -->
-                <a href="../projects/project_multichem.html" class="project-card">
+                <a href="#modal-multichem" class="project-card">
                     <div class="project-title">🧪 Multi-Modal Molecular Property Prediction</div>
                     <p class="project-desc">Developed a multi-modal fusion framework for computational chemistry by integrating structural embeddings from ChemBERTa and text representations from BGE-M3 to enhance regression accuracy.</p>
                     <div class="tags">
@@ -78,14 +78,17 @@
                     </div>
                 </a> <!-- #project-4 -->
 
-                <!-- Project 5: clipme -->
-                <a href="https://github.com/你的帳號/專案2" class="project-card">
-                    <div class="project-title">🎮 Pokémon Computer Vision AI Agent</div>
-                    <p class="project-desc">Engineered a real-time computer vision agent using OpenCV for real-time tile recognition and map classification, integrating an automated decision-making script for autonomous gameplay.</p>
+                <!-- Project 5: ClipME -->
+                <a href="#modal-clipme" class="project-card">
+                    <div class="project-title">📎 ClipME — Website Review Platform</div>
+                    <p class="project-desc">Built a full-stack social review platform where users discover and rate websites through trusted community circles — not strangers. Features a JWT-authenticated REST API, real-time social feeds, and AWS RDS deployment.</p>
                     <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">Computer Vision</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">JWT</span>
+                        <span class="tag">AWS</span>
                     </div>
                 </a> <!-- #project-5 -->
 
@@ -218,31 +221,122 @@
             </div>
         </div>
 
+
+        <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
+            <div class="project-modal-window" onclick="event.stopPropagation();">
+                <a href="#" class="modal-close-btn">&times;</a>
+                <div class="modal-detail-content">
+                    <h2>🧪 Multimodal Embeddings for Molecular Property Prediction</h2>
+                    <p class="modal-subtitle">
+                        Graduate Research Project · NLP × Computational Chemistry | 2024–2025<br>
+                        <em>Sponsored by Prof. Zois Boukouvalas · Manuscript in preparation</em>
+                    </p>
+                    <hr>
+                    <h3>Project Overview</h3>
+                    <p>Contributed to a graduate research project investigating whether fusing <strong>natural language representations</strong> with <strong>chemical structure embeddings</strong> improves molecular property prediction for drug screening applications.</p>
+                    <img src="../figures/horizontal_line_workflow.png" alt="Multimodal Pipeline Diagram" style="width:100%; border-radius:8px; margin:20px 0;">
+                    <h3>Technical Highlights</h3>
+                    <ul>
+                        <li><strong>Textual embedding pipeline:</strong> Prompted <strong>Llama-3.1-8B</strong> to generate per-molecule pharmacological descriptions from SMILES strings and molecular metrics, then encoded outputs into dense vectors using <strong>BGE-M3</strong>.</li>
+                        <li><strong>Prompt engineering:</strong> Designed and iterated on a system prompt constraining the LLM to medicinal chemistry analysis — balancing scientific precision with output consistency across 1,500+ molecules.</li>
+                        <li><strong>Data preparation:</strong> Canonicalized SMILES representations using <strong>RDKit</strong> and structured the dataset for downstream embedding and regression tasks.</li>
+                        <li><strong>Pipeline integration:</strong> Coordinated parallel textual and structural feature generation into a unified input for the regression model.</li>
+                    </ul>
+                    <h3>Tags & Technologies</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Llama-3.1-8B</span>
+                        <span class="tag">BGE-M3</span>
+                        <span class="tag">RDKit</span>
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Computational Chemistry</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Project 4: Pokemon-->
         <div id="modal-pokemon" class="project-modal-overlay" onclick="window.location.hash = '#';">
             <div class="project-modal-window" onclick="event.stopPropagation();">
                 <a href="#" class="modal-close-btn">&times;</a>
                 <div class="modal-detail-content">
-                    <h2>🎮 Pokémon Computer Vision AI Agent</h2>
-                    <p class="modal-subtitle">Personal Project | OpenCV & Automation</p>
+                    <h2>🎮 Pokémon AI Agent</h2>
+                    <p class="modal-subtitle">Team Project · Computer Vision & Reinforcement Learning | 2025</p>
                     <hr>
                     <h3>Project Overview</h3>
-                    <p>Engineered a real-time computer vision agent using OpenCV for real-time tile recognition and map classification, integrating an automated decision-making script for autonomous gameplay in GameBoy simulator environments.</p>
-                    <div class="modal-image-placeholder">
-                        <p>[ OpenCV Real-Time Detection Screen ]</p>
-                    </div>
-                    <h3>Technical Highlights</h3>
+                    <p>Built an AI agent that plays Pokémon Gold (Game Boy Color, 1999) by interpreting visual input from a Game Boy emulator and making real-time decisions — no access to the game's internal state, only screen pixels. The project explored two independent methods: a CNN-based imitation learning agent and a grid-map navigation agent using Q-learning.</p>
+                    <video controls style="width:100%; border-radius:8px; margin:20px 0;">
+                        <source src="../figures/gold3.mp4" type="video/mp4">
+                        <p>Your browser does not support this video format.</p>
+                    </video>
+                    <h3>Technical Highlight 1 — CNN Imitation Learning</h3>
                     <ul>
-                        <li>Utilized template matching and contour detection for real-time map tile recognition.</li>
-                        <li>Built a automated state-machine script to handle early-game navigation decisions autonomously.</li>
-                        <li>Optimized frame capture rate to guarantee low-latency automated actions.</li>
+                        <li>Captured screenshots while manually playing and mapped each frame to the corresponding key press to build a labeled dataset.</li>
+                        <li>Preprocessed images (resize, grayscale, normalize) and trained a <strong>CNN model</strong> to predict actions from visual input.</li>
+                        <li>Deployed the model live: used <strong>AutoHotkey</strong> to simulate key presses in the emulator based on real-time CNN predictions.</li>
+                    </ul>
+                    <h3>Technical Highlight 2 — Grid Map Navigation</h3>
+                    <ul>
+                        <li>Captured the emulator window in real time using <strong>pyautogui</strong> and overlaid a grid (tile size 48) to structure the game space.</li>
+                        <li>Identified accessible vs. inaccessible tiles via <strong>HSV/RGB color detection</strong> (floor RGB range: [90,120,100]–[203,187,168]), detected exits by color (green), and located the character position (blue marker).</li>
+                        <li>Iterated through grayscale, RGB, and HSV detection approaches to handle noisy in-game textures; addressed margin noise in exit recognition and hat noise in character detection.</li>
+                        <li>Used <strong>Q-learning</strong> to train a navigation agent on the generated grid map.</li>
+                    </ul>
+                    <h3>Future Work</h3>
+                    <ul>
+                        <li>Expand training data to cover more game areas and add temporal memory for tracking movement history.</li>
+                        <li>Explore Reinforcement Learning for decision-making and evaluate combining both methods.</li>
                     </ul>
                     <h3>Tags & Technologies</h3>
                     <div class="tags">
                         <span class="tag">Python</span>
+                        <span class="tag">CNN</span>
                         <span class="tag">OpenCV</span>
+                        <span class="tag">pyautogui</span>
+                        <span class="tag">AutoHotkey</span>
+                        <span class="tag">Q-Learning</span>
                         <span class="tag">Computer Vision</span>
-                        <span class="tag">Automation</span>
+                        <span class="tag">Imitation Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5: ClipME -->
+        <div id="modal-clipme" class="project-modal-overlay" onclick="window.location.hash = '#';">
+            <div class="project-modal-window" onclick="event.stopPropagation();">
+                <a href="#" class="modal-close-btn">&times;</a>
+                <div class="modal-detail-content">
+                    <h2>📎 ClipME — Website Review Platform</h2>
+                    <p class="modal-subtitle">Team Project · Full-Stack Web Development | 2025</p>
+                    <hr>
+                    <h3>Project Overview</h3>
+                    <p>ClipME is a social media review platform where users discover, rate, and organize websites and tools based on real experiences from people they actually know. Unlike Reddit, Instagram, or X — where recommendations come from strangers — ClipME focuses on trusted, community-based discovery. Users can follow others, curate a personalized review feed, and vote on reviews to surface the most useful content.</p>
+                    <h3>Technical Highlight 1 — Full-Stack Architecture</h3>
+                    <ul>
+                        <li>Built a <strong>Django REST Framework</strong> backend with a clean RESTful API covering authentication, reviews, users, websites, categories, and voting — over 20 endpoints.</li>
+                        <li>Implemented <strong>JWT token authentication</strong> (access + refresh tokens) using SimpleJWT, with role-based access control for RegisteredUser, Moderator, and Admin.</li>
+                        <li>Deployed the database on <strong>AWS RDS (PostgreSQL)</strong> with local SQLite fallback for development; toggled via environment variable.</li>
+                    </ul>
+                    <h3>Technical Highlight 2 — Social Feed & Interaction System</h3>
+                    <ul>
+                        <li>Designed a <strong>follow/unfollow system</strong> where each user's feed dynamically shows reviews only from people they follow, separate from a global Trending feed ranked by upvotes.</li>
+                        <li>Built an <strong>upvote/downvote voting system</strong> on reviews, with filtering and sorting by newest, oldest, or vote count, and date-range filters (7 days, 30 days).</li>
+                        <li>Developed the frontend in <strong>React 19 + Vite</strong> with React Router DOM for client-side routing, Axios for API calls, and Bootstrap for responsive UI.</li>
+                    </ul>
+                    <h3>Tags & Technologies</h3>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Django REST Framework</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">AWS RDS</span>
+                        <span class="tag">JWT</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Python</span>
                     </div>
                 </div>
             </div>

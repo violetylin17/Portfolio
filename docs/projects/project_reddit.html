@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reddit AI Discourse Analysis | YuChien(Violet) Lin</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="project_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+      <a href="../index.html" class="nav-logo">Violet✨</a>
+      <div class="nav-links">
+        <a href="../pages/about_me.html">About Me</a>
+        <a href="../pages/project.html">Projects</a>
+        <a href="../pages/contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <header class="article-header">
+      <a href="../pages/project.html" class="article-category-link">Big Data · NLP</a>
+      <h1>How Did the Internet React to the AI Boom?</h1>
+      <p class="article-subtitle">Engagement & Sentiment Analysis Across 15 AI Subreddits, 2023–2024</p>
+      <div class="article-meta">
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">2025</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Scope</span>
+          <span class="meta-value">~8B rows · 15 subreddits</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Period</span>
+          <span class="meta-value">June 2023 – July 2024</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="project-article">
+
+      <div class="ptag-row">
+        <span class="ptag">PySpark</span>
+        <span class="ptag">AWS</span>
+        <span class="ptag">Spark ML</span>
+        <span class="ptag">NLP</span>
+        <span class="ptag">HashingTF</span>
+        <span class="ptag">Sentiment Analysis</span>
+        <span class="ptag">Big Data</span>
+      </div>
+
+      <!-- Abstract -->
+      <section class="article-section">
+        <div class="abstract">
+          <span class="abstract-label">Abstract</span>
+          <p>
+            During 2023–2024 — the peak of the AI boom — millions of Reddit users were processing a technological shift in real time. This project examines ~8 billion rows of posts and comments across 15 AI-related subreddits to answer two questions: how did major model releases reshape community engagement, and how did sentiment toward AI tools evolve over time? The analysis reveals that hype spikes are common but short-lived, that model-specific communities sustain engagement more than general ones, and that creative AI communities maintain consistently higher sentiment than text-based AI communities.
+          </p>
+        </div>
+      </section>
+
+      <!-- Research Questions -->
+      <section class="article-section">
+        <h2>1. Research Questions</h2>
+        <div class="rq-grid">
+          <div class="rq-card">
+            <span class="finding-tag">RQ 1</span>
+            <p>How do engagement levels change before and after major AI model releases, and which subreddits exhibit the strongest and most persistent hype spikes?</p>
+          </div>
+          <div class="rq-card">
+            <span class="finding-tag">RQ 2</span>
+            <p>How has sentiment toward different generative AI tools shifted over time across subreddit communities?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dataset -->
+      <section class="article-section">
+        <h2>2. Dataset</h2>
+        <p>The dataset was filtered from a multi-terabyte Reddit corpus using Spark, resulting in ~8 billion rows covering 15 AI-related subreddits. Subreddits were grouped into five thematic categories to enable meaningful stratified analysis.</p>
+
+        <div class="table-container">
+          <table class="channels-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Subreddits</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>General Discussion</strong></td>
+                <td>AskReddit</td>
+                <td>Baseline — broad public opinion at scale (17M+ weekly users)</td>
+              </tr>
+              <tr>
+                <td><strong>AI Product Communities</strong></td>
+                <td>ChatGPT, ClaudeAI, PerplexityAI, OpenAI, GPT4</td>
+                <td>Direct user interaction with AI products; use cases, updates, reactions</td>
+              </tr>
+              <tr>
+                <td><strong>Open-Source & Creative</strong></td>
+                <td>LocalLLaMA, StableDiffusion</td>
+                <td>Hands-on experimentation outside corporate ecosystems</td>
+              </tr>
+              <tr>
+                <td><strong>Technical & Research</strong></td>
+                <td>MachineLearning, datascience, programming, computerscience</td>
+                <td>Expert discussion, benchmarks, implementations</td>
+              </tr>
+              <tr>
+                <td><strong>Societal & Futurist</strong></td>
+                <td>Futurology, neoliberal, singularity</td>
+                <td>Policy, economic implications, long-term trajectories</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-cell">
+            <span class="num">~8B</span>
+            <span class="label">Total rows</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">15</span>
+            <span class="label">Subreddits</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">14</span>
+            <span class="label">Months covered</span>
+          </div>
+          <div class="stat-cell">
+            <span class="num">5</span>
+            <span class="label">Model release events</span>
+          </div>
+        </div>
+
+        <p style="margin-top:1.2rem;">A key design challenge was severe dataset imbalance — AskReddit alone contributes 58.5M rows while PerplexityAI has just 61. All analyses were therefore performed per subreddit or with explicit normalization and stratification to prevent large communities from dominating aggregate statistics.</p>
+      </section>
+
+      <!-- Methods -->
+      <section class="article-section">
+        <h2>3. Methods</h2>
+
+        <h3 class="sub-section-title">3.1 Model Release Engagement Analysis</h3>
+        <p>Five major AI model releases served as anchor events: Claude 2, GPT-4 Turbo, Stable Diffusion XL, Claude 3, and GPT-4o. For each event, a 28-day window was constructed — 14 days pre-event and 14 days post-event — to isolate immediate reactions from long-term trends.</p>
+        <div class="method-list">
+          <span class="pill">28-day event window</span>
+          <span class="pill">Pre/Post mean comparison</span>
+          <span class="pill">Subreddit stratification</span>
+          <span class="pill">Impact classification</span>
+        </div>
+        <p style="margin-top:1rem;">Subreddits were stratified into three behavioral categories — <strong>Model-Specific</strong> (e.g., r/ChatGPT), <strong>General/Future</strong>, and <strong>Baseline</strong> — and daily averages for post volume, sentiment score, and comment count were aggregated per category. Community reactions were then classified into distinct behavioral patterns: Short-Term Hype Spikes, Sustained Growth, or Negative/Neutral Contraction.</p>
+
+        <h3 class="sub-section-title">3.2 Sentiment Analysis Pipeline</h3>
+        <p>A four-stage Spark ML pipeline was constructed to quantify emotional shifts across subreddit discussions over the 14-month period.</p>
+        <div class="method-list">
+          <span class="pill">Spark ML Pipeline</span>
+          <span class="pill">Tokenization</span>
+          <span class="pill">Stop-word removal</span>
+          <span class="pill">HashingTF (5,000 features)</span>
+          <span class="pill">Lexicon-based polarity scoring</span>
+          <span class="pill">Monthly MSS aggregation</span>
+        </div>
+        <p style="margin-top:1rem;">Raw comment text was tokenized and cleaned (URLs, Reddit markdown, formatting artifacts removed), then converted to numerical vectors via HashingTF. Sentiment scores were normalized to [−1.0, +1.0] using a polarity lexicon accounting for the ratio of positive-to-negative tokens. Discussions were then classified into four domain clusters — <strong>Text AI, Creative AI, Research/Tech,</strong> and <strong>Baseline</strong> — and aggregated monthly to calculate Mean Sentiment Score (MSS) and standard deviation.</p>
+      </section>
+
+      <!-- Findings -->
+      <section class="article-section">
+        <h2>4. Findings</h2>
+
+        <h3 class="sub-section-title">4.1 Model Release Engagement</h3>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Hype spikes are common but short-lived</span>
+            <span class="finding-tag">RQ1</span>
+          </div>
+          <p>Most major releases trigger an immediate spike in average scores and comment counts, but engagement typically returns to pre-event levels within 2–3 days. Stable Diffusion XL showed the sharpest spike-and-decay pattern across Baseline and General/Future communities. In some cases — notably GPT-4 Turbo — significant score spikes appeared in General/Future subreddits up to 5 days <em>before</em> the official release, pointing to community speculation and anticipatory activity.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Post volume impact varies by perceived "technological leap"</span>
+            <span class="finding-tag">RQ1</span>
+          </div>
+          <p>Not every release drives traffic. GPT-4o and Claude 2 both produced clear increases in daily post volume (GPT-4o: 5,462 → 6,044; Claude 2: 8,778 → 9,323). Conversely, Claude 3 and Stable Diffusion XL saw slight post-event decreases, suggesting that without a perceived leap forward, new releases fail to sustain broader community attention.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Model-specific communities sustain engagement; general ones spike emotionally</span>
+            <span class="finding-tag">RQ1</span>
+          </div>
+          <p>Dedicated subreddits (e.g., r/ChatGPT) show more stable, sustained posting volume increases following releases — following GPT-4o, model-specific volume held at a visibly higher baseline for the entire two-week post-event period. Broader General/Future subreddits exhibit high score and comment volatility, indicating emotional reactivity without converting to sustained discussion.</p>
+        </div>
+
+        <h3 class="sub-section-title">4.2 Sentiment Trends</h3>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Creative AI maintains the highest and most stable sentiment</span>
+            <span class="finding-tag">RQ2</span>
+          </div>
+          <p>Creative AI communities (image/video generation tools) consistently scored highest on sentiment (0.20–0.28), driven by a "show-and-tell" culture that is inherently positive. Users sharing visual outputs generate enthusiasm rather than frustration, insulating these communities from the negativity found in troubleshooting-heavy text AI communities.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>Research/Tech sentiment dropped sharply in late 2023 — a "reality check"</span>
+            <span class="finding-tag">RQ2</span>
+          </div>
+          <p>Research/Tech communities started 2023 with sentiment comparable to Creative AI (~0.21), but experienced a sharp decline around October 2023 to ~0.11, after which it converged with Text AI levels. This likely marks the transition from an initial hype phase driven by theoretical excitement to a utility phase focused on practical limitations and technical challenges.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>High discussion volume inversely correlates with sentiment</span>
+            <span class="finding-tag">RQ2</span>
+          </div>
+          <p>Text AI (e.g., ChatGPT, Claude) commands the second-highest discussion volume (~150k posts/month) but maintains only moderate sentiment (0.05–0.13). High-volume communities are saturated with troubleshooting, bug reports, and usage inquiries, which naturally drags down average sentiment relative to niche creative communities.</p>
+        </div>
+
+        <div class="finding-block">
+          <div class="finding-title">
+            <span>AI subreddits are "optimism hubs" — the general public remains skeptical</span>
+            <span class="finding-tag">RQ2</span>
+          </div>
+          <p>All AI-specific categories (Creative, Text, Research) maintained consistently positive sentiment scores, while the Baseline (AskReddit) remained below 0.00 throughout the period. This confirms a clear divide: engaged AI communities skew positive, while general public discourse about AI remains skeptical or critical.</p>
+        </div>
+
+      </section>
+
+      <!-- Limitations & Takeaways -->
+      <section class="article-section">
+        <h2>5. Limitations &amp; Takeaways</h2>
+        <p>Lexicon-based sentiment scoring may underperform on informal, sarcastic, or highly technical Reddit language. The extreme subreddit size imbalance (AskReddit: 58M rows vs. PerplexityAI: 61 rows) required careful stratification — aggregate statistics without normalization would be dominated by a single community. Smaller subreddits also lack statistical power for some analyses.</p>
+
+        <ul class="takeaway-list">
+          <li>Hype around AI releases is real but fleeting — sustained engagement is driven by dedicated communities, not general audiences.</li>
+          <li>Perceived "technological leap" determines whether a release grows or shrinks community volume; incremental updates don't sustain attention.</li>
+          <li>Creative AI communities are structurally more positive than text AI communities, regardless of the underlying model quality.</li>
+          <li>The general public (AskReddit baseline) remained net-negative on AI throughout the period — a counterpoint to the optimism inside AI-specific communities.</li>
+          <li>The Research/Tech sentiment drop in Oct 2023 is a measurable signal of the broader hype-to-utility transition in expert AI discourse.</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Yu-Chien Lin. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

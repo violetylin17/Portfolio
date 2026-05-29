@@ -124,6 +124,38 @@
         <div class="project-modal-window" onclick="event.stopPropagation();">
             <a href="#" class="modal-close-btn">&times;</a>
             <div class="modal-detail-content">
+            <h2>📊 Reddit AI Discourse Analysis</h2>
+            <p class="modal-subtitle">Big Data & Cloud Computing · NLP | 2025<br>
+            <em style="font-size:0.85em;color:#888;">~8 billion rows · 15 subreddits · June 2023 – July 2024</em></p>
+            <hr>
+            <h3>Project Overview</h3>
+            <p>Analyzed large-scale Reddit discussion data to understand how online communities processed the AI boom in real time. Working with ~8 billion rows across 15 AI-related subreddits, the project examined engagement shifts around major model releases and tracked longitudinal sentiment trends across distinct AI discourse communities.</p>
+                <img src="figures/reddit_sentiment.png" alt="Sentiment trends of AI in 2025" style="width:100%; border-radius:8px; margin:20px 0;">
+            <h3>Technical Highlights</h3>
+            <ul>
+                <li>Designed a <strong>28-day event window analysis</strong> around 5 major AI model releases (Claude 2, GPT-4 Turbo, SDXL, Claude 3, GPT-4o), comparing pre/post engagement across stratified subreddit categories.</li>
+                <li>Built a <strong>Spark ML sentiment pipeline</strong>: tokenization, stop-word removal, HashingTF (5,000 features), and lexicon-based polarity scoring normalized to [−1, +1].</li>
+                <li>Classified communities into 4 domain clusters (Text AI, Creative AI, Research/Tech, Baseline) for stratified longitudinal analysis from June 2023 to June 2024.</li>
+                <li>Identified behavioral patterns — Short-Term Hype Spikes, Sustained Growth, Neutral Contraction — by comparing pre/post event means across subreddit categories.</li>
+            </ul>
+            <h3>Tags & Technologies</h3>
+            <div class="tags">
+                <span class="tag">PySpark</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Spark ML</span>
+                <span class="tag">NLP</span>
+                <span class="tag">HashingTF</span>
+                <span class="tag">Sentiment Analysis</span>
+                <span class="tag">Big Data</span>
+                <span class="tag">Data Visualization</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    <!-- <div id="reddit-data" class="project-modal-overlay" onclick="window.location.hash = '#';">
+        <div class="project-modal-window" onclick="event.stopPropagation();">
+            <a href="#" class="modal-close-btn">&times;</a>
+            <div class="modal-detail-content">
                 <h2>📊 Reddit AI Trend Analysis</h2>
                 <p class="modal-subtitle">Independent Data Pipeline Project | Python & NLP</p>
                 <hr>
@@ -158,7 +190,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
