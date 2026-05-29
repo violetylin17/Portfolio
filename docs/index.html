@@ -192,8 +192,42 @@
         </div>
     </div> -->
 
-
+    <!-- Project 3: MultiChem-->
     <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
+        <div class="project-modal-window" onclick="event.stopPropagation();">
+            <a href="#" class="modal-close-btn">&times;</a>
+            <div class="modal-detail-content">
+                <h2>🧪 Multimodal Embeddings for Molecular Property Prediction</h2>
+                <p class="modal-subtitle">
+                    Graduate Research Project · NLP × Computational Chemistry | 2024–2025<br>
+                    <em>Sponsored by Prof. Zois Boukouvalas · Manuscript in preparation</em>
+                </p>
+                <hr>
+                <h3>Project Overview</h3>
+                <p>Contributed to a graduate research project investigating whether fusing <strong>natural language representations</strong> with <strong>chemical structure embeddings</strong> improves molecular property prediction for drug screening applications.</p>
+                <img src="../figures/horizontal_line_workflow.png" alt="Multimodal Pipeline Diagram" style="width:100%; border-radius:8px; margin:20px 0;">
+                <h3>Technical Highlights</h3>
+                <ul>
+                    <li><strong>Textual embedding pipeline:</strong> Prompted <strong>Llama-3.1-8B</strong> to generate per-molecule pharmacological descriptions from SMILES strings and molecular metrics, then encoded outputs into dense vectors using <strong>BGE-M3</strong>.</li>
+                    <li><strong>Prompt engineering:</strong> Designed and iterated on a system prompt constraining the LLM to medicinal chemistry analysis — balancing scientific precision with output consistency across 1,500+ molecules.</li>
+                    <li><strong>Data preparation:</strong> Canonicalized SMILES representations using <strong>RDKit</strong> and structured the dataset for downstream embedding and regression tasks.</li>
+                    <li><strong>Pipeline integration:</strong> Coordinated parallel textual and structural feature generation into a unified input for the regression model.</li>
+                </ul>
+                <h3>Tags & Technologies</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Llama-3.1-8B</span>
+                    <span class="tag">BGE-M3</span>
+                    <span class="tag">RDKit</span>
+                    <span class="tag">Prompt Engineering</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">Computational Chemistry</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="modal-multichem" class="project-modal-overlay" onclick="window.location.hash = '#';">
         <div class="project-modal-window" onclick="event.stopPropagation();">
             <a href="#" class="modal-close-btn">&times;</a>
             <div class="modal-detail-content">
@@ -221,7 +255,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
    
 
