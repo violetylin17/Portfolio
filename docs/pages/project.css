@@ -1,0 +1,37 @@
+/* ==========================================================================
+   專案分類 Filter
+   ========================================================================== */
+.project-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--mid);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 5px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.filter-btn.active {
+    background-color: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+}
+
+.project-card.hidden {
+    display: none;
+}
