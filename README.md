@@ -1,4 +1,4 @@
-# Yu-Chien (Violet) Lin — Portfolio
+# Yu-Chien Lin — Portfolio
 
 Personal portfolio website built with vanilla HTML, CSS, and JavaScript. Deployed via GitHub Pages.
 
@@ -12,7 +12,6 @@ Data Scientist with a dual background in Data Science (American University) and 
 
 ---
 
-🛠️ Skills & Tools
 ## 🛠️ Skills & Tools
 
 - **Languages:** Python, R, SQL
