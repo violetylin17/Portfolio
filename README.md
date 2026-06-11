@@ -1,4 +1,4 @@
-# Yu-Chien Lin — Portfolio
+# Portfolio
 
 Personal portfolio website built with vanilla HTML, CSS, and JavaScript. Deployed via GitHub Pages.
 
