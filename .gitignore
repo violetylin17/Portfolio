@@ -4,8 +4,8 @@ tailwind_v4/
 .next/
 *.md
 
-project_youtube.html
-project_multichem.html
-youtube_workflow.png
+docs/projects/project_youtube.html
+docs/projects/project_multichem.html
+docs/figures/youtube_workflow.png
 
 portfolio_blueprint.md
